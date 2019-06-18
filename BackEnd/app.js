@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 // const StudentRoute = require('./api/routes/student')
 const ClientRoute = require('./api/routes/clients')
 const AgentList = require('./api/routes/agentList')
+// const zillow = require('./api/routes/zillow')
 
 //DATABASE
 const db = require('./config/dabase')
@@ -37,7 +38,7 @@ app.use((req, res, next) => {
       next();
 });
 
-
+// app.use('/GetZestimate', zillow)
 app.use('/clients', ClientRoute)
 app.use('/agentList', AgentList)
 

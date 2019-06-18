@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import AgentCard from "../components/AgentCard";
 import * as action from '../store/actions'
+import Profile from "../components/Profile";
 
 class AllAgents extends Component {
   state = {
@@ -29,14 +30,18 @@ class AllAgents extends Component {
   };
 
   render() {
-    return <div>{this.handleAgentRendering()}</div>;
+    return (
+    <div>
+    {this.handleAgentRendering()}
+    </div>);
   }
 }
 
 const mapStateToProps = (state) => {
 
   return{
-    AgentList : state.AgentList
+    AgentList : state.AgentList,
+    Agent : state.SingleUserReducer
   }
 }
 

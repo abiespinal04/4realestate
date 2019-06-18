@@ -40,10 +40,16 @@ export const LoginUser = user => {
     return async dispatch => {
     firebase.auth().signInWithEmailAndPassword(email,password)
     .then(res => {
-        window.location = '/home' 
-        console.log("Logged in successfully")
-        
+        // dispatch({type:LOGIN_USER, payload:users})
+        axios.get(`http://localhost:3000/AgentList/${email}`)
+        .then( res => {
+            console.log("Logged in successfully", res.data.agent[0].agent)
+            dispatch({type:LOGIN_USER, payload:res.data.agent[0].agent})
+            
+        })
+        // console.log("Logged in successfully", res)
     })
     .catch(err => console.log(err))
     }
+   
 }

@@ -19,6 +19,7 @@ class LoginScreen  extends Component {
 
     handleLoginUser = () => {
         this.props.LoginUser(this.state)
+        
     }
 
     render() { 
@@ -30,7 +31,9 @@ class LoginScreen  extends Component {
                 <input placeholder='email' onChange={(event) => this.setState({email:event.target.value})}/>
                 <label>Password:</label>
                 <input placeholder='password' onChange={(event) => this.setState({password:event.target.value})}/>
+                <Link to='home'>
                 <button onClick={this.handleLoginUser}>Submit</button>
+                </Link>
                 <Link to='registerUser'>
                 <button onClick={this.handleLoginUser}>Register</button>
                 </Link>

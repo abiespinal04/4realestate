@@ -1,8 +1,7 @@
-import { LOAD_AGENTS,REGISTER_USER } from "../actions/types";
+import { LOAD_AGENTS,REGISTER_USER, LOGIN_USER } from "../actions/types";
 
 const INITIAL_STATE = {
-  agents: []
-
+  agents: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -12,6 +11,13 @@ export default (state = INITIAL_STATE, action) => {
       return { ...action.payload }}
 
     case REGISTER_USER : return { ...state, agents: action.payload }
+
+    // case LOGIN_USER :  { 
+    //   // window.location = '/home' 
+    //   console.log("INSIDE LOGIN_USER CASE", action.payload)
+    // return {
+    //   ...state, agent: action.payload
+    // }}
     // case ADD_STUDENT:
     //   const newStudent = action.payload
     //   // return {...state, newStudent};

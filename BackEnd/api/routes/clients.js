@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 // const db = require('../../config/database')
-const Client = require('../models/clients')
+const Clients = require('../models/clients')
 
 
 router.get('/', (req, res, next) => {
-    Client.findAll()
+    Clients.findAll()
         .then(client => {
             console.log(client)
             res.status(200).json({ client })
@@ -13,26 +13,36 @@ router.get('/', (req, res, next) => {
         .catch(err => console.log("error", err))
 })
 
+router.get('/:client', (req, res, next) => {
+        const clientEmail = req.params.client
+   
+        Clients.findAll({
+        where: {
+            agent: {email:agentEmail}
+          }
+      })
+        .then(agent => {
+            console.log(agent)
+            res.status(200).json({ agent })
+        })
+        .catch(err => console.log("error", err))
+})
+
+
 
 router.post('/addClient', (req, res, next) => {
 
-    campusName = req.body.campusName;
-    studentCount = req.body.studentCount,
-    description = req.body.description,
-    imageURL = req.body.imageURL
+    agent = req.body;
 
-        Campus.create({
-            campusName,
-            studentCount,
-            description,
-            imageURL
+    Clients.create({
+        agent
         })
-            .then(campus => {
-                res.status(200).json(campus)
+            .then(agents => {
+                res.status(200).json(agents)
             })
             .catch(err => {
                 console.log(err)
-                res.status(404).json({ message: 'Error at addStudent route' })
+                res.status(404).json({ message: 'Error at addAgent route' })
             })
 
 
@@ -67,23 +77,17 @@ router.delete('/:campusId', (req, res, next) => {
 
 router.patch('/editCampus', (req, res, next) => {
 
-    const newCampus = req.body
-    const campusID = newCampus.id
-    const campusName = newCampus.campusName
-    const studentCount = newCampus.studentCount
-    const description = newCampus.description
-    const imageURL = newCampus.imageURL
+    const agent = req.body
+    const agentID = agent.id
+    const clients = agent.client
 
     // console.log("BACKENNNNNNNNND", newStudent)
     Campus.update(
         {
-            campusName,
-            studentCount,
-            description,
-            imageURL
+            clients
         },
 
-        { where: { id: campusID } }
+        { where: { id: agentID } }
     ).then((campus) => res.status(200).json(campus))
         .catch(err => console.log("DELETE STUDDENT ERROR:", err))
 

@@ -7,7 +7,7 @@ class Profile extends Component {
     state = {  }
     render() { 
         return ( 
-            <div style={{float:'left', textAlign:'center', marginLeft:20, marginTop:15}}>
+            <div style={{textAlign:'center', marginLeft:20, marginTop:15}}>
                  <img
                 style={{ maxHeight: 250, maxWidth: 200, borderRadius:'100%'}}
                 src={this.props.Agent.imageURL}
@@ -15,7 +15,11 @@ class Profile extends Component {
               />
               <h3>{this.props.Agent.firstName}</h3>
               <p>{this.props.Agent.lastName}</p>
-              <Link><p><i class="fas fa-edit"></i></p></Link>
+              <div style={{display:'inline-block'}}>
+              <Link ><p><i class="fas fa-edit"></i></p></Link>
+              <Link to='/addClient'><i class="fas fa-user-plus"></i></Link>
+              {}
+              </div>
             </div>
          );
     }

@@ -53,3 +53,14 @@ export const LoginUser = user => {
     }
    
 }
+
+export const AddClient = client => {
+ 
+  return async dispatch => {
+  const {data} = await axios.post('http://localhost:3000/AgentList/addClient', client)
+  
+  }
+ 
+ 
+}
+

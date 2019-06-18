@@ -9,6 +9,7 @@ class RegisterUserScreen extends Component {
         email:'',
         password:'',
         address:'',
+        type:'',
         clients:[],
         imageURL:''
 
@@ -27,6 +28,7 @@ class RegisterUserScreen extends Component {
                 <input placeholder='password' onChange={(event) => this.setState({password:event.target.value})}/>
                 <input placeholder='address' onChange={(event) => this.setState({address:event.target.value})}/>
                 <input placeholder='imageURL' onChange={(event) => this.setState({imageURL:event.target.value})}/>
+                <input placeholder='type' onChange={(event) => this.setState({type:event.target.value})}/>
                 <button onClick={this.handleRegisterUser}>Register</button>
             </div>
          );

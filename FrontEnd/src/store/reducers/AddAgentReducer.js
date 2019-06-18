@@ -1,4 +1,4 @@
-import { LOAD_AGENTS } from "../actions/types";
+import { LOAD_AGENTS,REGISTER_USER } from "../actions/types";
 
 const INITIAL_STATE = {
   agents: []
@@ -11,6 +11,7 @@ export default (state = INITIAL_STATE, action) => {
     case LOAD_AGENTS: { console.log("INSIDE AGENT LOAD", action.payload)
       return { ...action.payload }}
 
+    case REGISTER_USER : return { ...state, agents: action.payload }
     // case ADD_STUDENT:
     //   const newStudent = action.payload
     //   // return {...state, newStudent};

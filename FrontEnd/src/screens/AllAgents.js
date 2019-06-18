@@ -16,6 +16,7 @@ class AllAgents extends Component {
     this.props.LoadAgents(data.agentList)
     console.log("Data coming from load student  reducer",this.props.AgentList)
     this.setState({ agentList:data.agentList,});
+
   }
 
   handleAgentRendering = () => {

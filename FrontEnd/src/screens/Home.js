@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import "../CSS/Home.css"
+import Profile from '../components/Profile';
 
 
 class Home extends Component {
@@ -11,6 +12,7 @@ class Home extends Component {
     render() { 
         return ( 
             <div className="HomeContainer"> 
+              <Profile/>
                 <h1>
                    HOME
                 </h1>

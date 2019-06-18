@@ -13,6 +13,22 @@ router.get('/', (req, res, next) => {
         .catch(err => console.log("error", err))
 })
 
+router.get('/:agent', (req, res, next) => {
+        const agentEmail = req.params.agent
+   
+    AgentList.findAll({
+        where: {
+            agent: {email:agentEmail}
+          }
+      })
+        .then(agent => {
+            console.log(agent)
+            res.status(200).json({ agent })
+        })
+        .catch(err => console.log("error", err))
+})
+
+
 
 router.post('/addAgent', (req, res, next) => {
 

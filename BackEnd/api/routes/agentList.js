@@ -16,10 +16,10 @@ router.get('/', (req, res, next) => {
 
 router.post('/addAgent', (req, res, next) => {
 
-    agents = req.body;
-    
+    agent = req.body;
+
     AgentList.create({
-        agents
+        agent
         })
             .then(agents => {
                 res.status(200).json(agents)

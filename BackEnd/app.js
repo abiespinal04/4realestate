@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 // const StudentRoute = require('./api/routes/student')
 const ClientRoute = require('./api/routes/clients')
+const AgentList = require('./api/routes/agentList')
 
 //DATABASE
 const db = require('./config/dabase')
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 
 
 app.use('/clients', ClientRoute)
+app.use('/agentList', AgentList)
 
 
 module.exports = app;

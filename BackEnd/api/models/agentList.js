@@ -2,11 +2,10 @@
 const Sequelize = require('sequelize')
 const db = require('../../config/dabase')
 
-const AgentList = db.define('agentList', {
-    agents: {
-        type: Sequelize.ARRAY
-       
+const AgentList = db.define('AgentLists', {
+    agent: {
+        type: Sequelize.JSON
     }
 })
 
-module.exports = Clients
+module.exports = AgentList

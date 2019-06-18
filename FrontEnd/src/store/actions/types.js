@@ -1,0 +1,1 @@
+export const LOAD_AGENTS = 'load_agents';

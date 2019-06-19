@@ -56,18 +56,24 @@ export const LoginUser = user => {
    
 }
 
-export const FindAgent = async (email,clients) => {
-  const {data} = await axios.post(`http://localhost:3000/AgentList/${email}` )
-  AddClient()
+export const FindAgent =  (email,clients) => {
+  const agentEmail = email.email
+  
+  return async dispatch => {
+  const {data} = await axios.get(`http://localhost:3000/AgentList/${agentEmail}` )
+  // AddClient()
+  console.log("New data fuck", data.agent)
+  }
+  
 }
 
-export const AddClient = client => {
+// export const AddClient = client => {
  
-  return async dispatch => {
-  const {data} = await axios.post('http://localhost:3000/AgentList/addClient', client)
+//   return async dispatch => {
+//   const {data} = await axios.post('http://localhost:3000/AgentList/addClient', client)
   
-  }
+//   }
  
  
-}
+// }
 

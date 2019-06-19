@@ -19,7 +19,7 @@ class AddClient extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(prevProps.clients !== this.props.User)
-    this.props.AddClient(this.state.clients)
+    this.props.FindAgent(this.props.User,this.state.clients)
   }
 
   handleAddClient = () =>{

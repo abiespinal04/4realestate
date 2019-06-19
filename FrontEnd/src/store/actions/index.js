@@ -43,7 +43,7 @@ export const LoginUser = user => {
         // dispatch({type:LOGIN_USER, payload:users})
         axios.get(`http://localhost:3000/AgentList/${email}`)
         .then( res => {
-            console.log("Logged in successfully", res.data.agent[0].agent)
+            console.log("Logged in successfully", res.data)
             dispatch({type:LOGIN_USER, payload:res.data.agent[0].agent})
             
         })

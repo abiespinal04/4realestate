@@ -28,7 +28,7 @@ class AddClient extends Component {
       this.setState({clients:newArray})      
   }
     handleLog = () => {
-        console.log("NEW CLIENTS", this.state.clients)
+        console.log("NEW CLIENTS", this.props.User)
     }
   componentDidMount() {
      this.setState({clients:this.props.User.clients})

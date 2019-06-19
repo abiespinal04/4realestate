@@ -35,6 +35,8 @@ export const RegisterUser = agents => {
 };
 
 
+
+
 export const LoginUser = user => {
     const {email, password} = user
     return async dispatch => {
@@ -52,6 +54,11 @@ export const LoginUser = user => {
     .catch(err => console.log(err))
     }
    
+}
+
+export const FindAgent = async (email,clients) => {
+  const {data} = await axios.post(`http://localhost:3000/AgentList/${email}` )
+  AddClient()
 }
 
 export const AddClient = client => {

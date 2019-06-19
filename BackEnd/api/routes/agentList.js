@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const sequelize = require('sequelize')
 // const db = require('../../config/database')
 const AgentList = require('../models/agentList')
 
@@ -49,6 +50,39 @@ router.post('/addAgent', (req, res, next) => {
 
 })
 
+router.post('/addClient', (req, res, next) => {
+
+    agent = req.body;
+    console.log("TEST", req.body)
+    
+  
+    AgentList.update(  {
+        agent : {agents:[
+        
+        {firstName: "Borracho",
+        lastName: "Martinez",
+        type: "client",
+        email: "maria@gmail.com",
+        password: "password",
+        address: "4242 3rd ave bronx new york",
+        imageURL: "https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?cs=srgb&dl=attractive-beautiful-beauty-1542085.jpg&fm=jpg", 
+        }]}
+        },
+
+    { where: { id: 22 } })
+            .then(agents => {
+                res.status(200).json(agents)
+            })
+            .catch(err => {
+                console.log(err)
+                res.status(404).json({ message: 'Error at addAgent route' })
+            })
+
+
+
+})
+
+
 router.get('/:id', (req, res, next) => {
 
     res.status(200).json({ firstName: 'abimael', lastName: 'espinal' })
@@ -77,23 +111,17 @@ router.delete('/:campusId', (req, res, next) => {
 
 router.patch('/editCampus', (req, res, next) => {
 
-    const newCampus = req.body
-    const campusID = newCampus.id
-    const campusName = newCampus.campusName
-    const studentCount = newCampus.studentCount
-    const description = newCampus.description
-    const imageURL = newCampus.imageURL
+    const agent = req.body
+    const agentID = agent.id
+    const clients = agent.client
 
     // console.log("BACKENNNNNNNNND", newStudent)
     Campus.update(
         {
-            campusName,
-            studentCount,
-            description,
-            imageURL
+            clients
         },
 
-        { where: { id: campusID } }
+        { where: { id: agentID } }
     ).then((campus) => res.status(200).json(campus))
         .catch(err => console.log("DELETE STUDDENT ERROR:", err))
 

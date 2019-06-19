@@ -31,7 +31,10 @@ class LoginScreen  extends Component {
                 <input placeholder='email' onChange={(event) => this.setState({email:event.target.value})}/>
                 <label>Password:</label>
                 <input placeholder='password' onChange={(event) => this.setState({password:event.target.value})}/>
-                <Link to='home'>
+                <Link
+            to="/home"
+            state={this.props.Agent}
+          >
                 <button onClick={this.handleLoginUser}>Submit</button>
                 </Link>
                 <Link to='registerUser'>
@@ -41,7 +44,5 @@ class LoginScreen  extends Component {
          );
     }
 }
- 
-
 
 export default connect(null,action)(LoginScreen);

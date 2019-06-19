@@ -2,21 +2,10 @@
 const Sequelize = require('sequelize')
 const db = require('../../config/dabase')
 
-const Clients = db.define('client', {
-    firstName: {
-        type: Sequelize.STRING,
-       
-    },
-    lastName: {
-        type: Sequelize.INTEGER
-    },
-    address: {
-        type: Sequelize.STRING
-    },
-    email: {
-        type: Sequelize.STRING
+const Clients = db.define('Clients', {
+    agent: {
+        type: Sequelize.JSON
     }
-
 })
 
 module.exports = Clients

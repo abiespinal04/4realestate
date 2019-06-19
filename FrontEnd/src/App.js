@@ -14,6 +14,7 @@ import reducers from './store/reducers'
 import ReduxThunk from 'redux-thunk';
 import {createStore, applyMiddleware} from 'redux';
 import RegisterUserScreen from './screens/RegisterUserScreen';
+import AddClient from './screens/AddClient'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       {/* <header className="App-header">
       </header> */}
        <Switch>
+       <Route path="/addClient" component={AddClient}></Route>
         <Route path="/registerUser" component={RegisterUserScreen}></Route>
        <Route path="/agentInfo" component={AgentInfo}></Route>
        <Route path="/clients" component={AllClients}></Route>

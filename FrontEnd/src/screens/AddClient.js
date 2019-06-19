@@ -25,7 +25,8 @@ class AddClient extends Component {
   handleAddClient = () =>{
       let newArray = [...this.state.clients]
       newArray.push(this.state.client)
-      this.setState({clients:newArray})      
+      this.setState({clients:newArray})
+            
   }
     handleLog = () => {
         console.log("NEW CLIENTS", this.props.User)

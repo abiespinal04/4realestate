@@ -56,25 +56,25 @@ router.post('/addClient', (req, res, next) => {
     console.log("TEST", req.body)
     
   
-    AgentList.update(  {
-        agent : { firstName: "maria",
-        lastName: "espinal",
-        email: "abimaelespinal@hotmail.com",
-        password: 123456,
-        address: "232 32rd 23",
-        type: "agent",
-        clients: agents,
-        imageURL: "https://images.pexels.com/photos/1547971/pexels-photo-1547971.jpeg?cs=srgb&dl=adult-beautiful-blush-1547971.jpg&fm=jpg"}
-        },
+    // AgentList.update(  {
+    //     agent : { firstName: "maria",
+    //     lastName: "espinal",
+    //     email: "abimaelespinal@hotmail.com",
+    //     password: 123456,
+    //     address: "232 32rd 23",
+    //     type: "agent",
+    //     clients: agents,
+    //     imageURL: "https://images.pexels.com/photos/1547971/pexels-photo-1547971.jpeg?cs=srgb&dl=adult-beautiful-blush-1547971.jpg&fm=jpg"}
+    //     },
 
-    { where: { id: 28 } })
-            .then(agents => {
-                res.status(200).json(agents)
-            })
-            .catch(err => {
-                console.log(err)
-                res.status(404).json({ message: 'Error at addAgent route' })
-            })
+    // { where: { id: 28 } })
+    //         .then(agents => {
+    //             res.status(200).json(agents)
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //             res.status(404).json({ message: 'Error at addAgent route' })
+    //         })
 
 
 

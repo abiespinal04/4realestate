@@ -64,8 +64,9 @@ export const FindAgent =  (email,clients) => {
   // AddClient()
   // data.agent[0].agent.clients = clients
   // console.log("New data fuck", data.agent[0].id)
-  console.log("New data fuck", data.agent[0].agent.clients)
-    if( clients !== clients){
+  // console.log("New data fuck", data.agent[0].agent.clients)
+  console.log("New data fuck", clients)
+    if( clients === clients){
     AddClient(data.agent[0], clients)
     } 
   }
@@ -74,12 +75,13 @@ export const FindAgent =  (email,clients) => {
 
 export const AddClient = (agent, clients) => {
   const newAgent = {...agent};
-  newAgent.clients = clients;
+  newAgent.agent.clients = clients;
   console.log("Calling AddClient action",newAgent)
-  return async dispatch => {
-  // const {data} = await axios.post('http://localhost:3000/AgentList/addClient', newAgent)
+
+  axios.post('http://localhost:3000/agentList/addClient', newAgent)
+  .then(data => console.log("MAKING CALL"))
   
-  }
+  
  
  
 }

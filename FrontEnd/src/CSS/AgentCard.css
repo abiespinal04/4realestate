@@ -1,5 +1,23 @@
-.mainContainer{
-    display: inline-block;
-    margin: 10px
+.mainContainer {
+  display: inline-block;
+  background-color: rgb(112, 112, 112);
+  margin: 10px;
+  border: 1px solid black;
+  width: 200px;
+  max-width: 200px;
+  color: white;
+  text-shadow: 2px 2px #2e2e2e;
+  border-radius: 30px;
+  /* font-family: "Times New Roman", Times, serif; */
 }
 
+img {
+  max-width: 200px;
+  background-color: #2e2e2e;
+  max-height: 200px;
+  padding: 5px;
+  margin: 10px 0px;
+  border-radius: 50px;
+  box-shadow: 6px 6px 5px #000000;
+  border: 1px solid black;
+}

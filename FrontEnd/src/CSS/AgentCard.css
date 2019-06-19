@@ -1,8 +1,14 @@
 .mainContainer {
   display: inline-block;
-  background-color: rgb(112, 112, 112);
+  /* background-color: rgb(112, 112, 112); */
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(87, 87, 87, 1) 0%,
+    rgba(173, 173, 173, 1) 100%
+  );
   margin: 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(100, 100, 100);
   width: 200px;
   max-width: 200px;
   color: white;
@@ -20,4 +26,8 @@ img {
   border-radius: 50px;
   box-shadow: 6px 6px 5px #000000;
   border: 1px solid black;
+}
+
+button {
+  margin-bottom: 10px;
 }

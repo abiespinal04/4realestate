@@ -19,7 +19,7 @@ class AgentCard extends Component {
         <div>
           <h1>{this.props.agent.agent.firstName}</h1>
           <h4>{this.props.agent.agent.lastName}</h4>
-          <p>{this.props.agent.createdAt}</p>
+          <p> joined: {this.props.agent.createdAt}</p>
           <button>
             <i class="fas fa-heart" />
           </button>

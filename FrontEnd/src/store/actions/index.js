@@ -80,6 +80,7 @@ export const AddClient = (agent, clients) => {
 
   axios.post('http://localhost:3000/agentList/addClient', newAgent)
   .then(data => console.log("MAKING CALL"))
+  .catch(err => console.log(err))
   
   
  

@@ -8,7 +8,6 @@ const AgentList = require('../models/agentList')
 router.get('/', (req, res, next) => {
     AgentList.findAll()
         .then(agentList => {
-            console.log(agentList)
             res.status(200).json({ agentList })
         })
         .catch(err => console.log("error", err))
@@ -23,7 +22,7 @@ router.get('/:agent', (req, res, next) => {
           }
       })
         .then(agent => {
-            console.log(agent)
+           
             res.status(200).json({ agent })
         })
         .catch(err => console.log("error", err))
@@ -62,6 +61,7 @@ router.post('/addClient', (req, res, next) => {
         email: req.body.agent.email,
         password: req.body.agent.password,
         address: req.body.agent.address,
+        house: req.body.agent.house,
         type: req.body.agent.type,
         clients: req.body.agent.clients,
         imageURL: req.body.agent.imageURL}

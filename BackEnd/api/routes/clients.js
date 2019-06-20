@@ -7,7 +7,7 @@ const Clients = require('../models/clients')
 router.get('/', (req, res, next) => {
     Clients.findAll()
         .then(client => {
-            console.log(client)
+           
             res.status(200).json({ client })
         })
         .catch(err => console.log("error", err))
@@ -22,7 +22,7 @@ router.get('/:client', (req, res, next) => {
           }
       })
         .then(agent => {
-            console.log(agent)
+         
             res.status(200).json({ agent })
         })
         .catch(err => console.log("error", err))

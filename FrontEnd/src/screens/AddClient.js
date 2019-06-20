@@ -35,19 +35,27 @@ class AddClient extends Component {
   handleAddClient = () => {
     const { street, city, state } = this.state.client.address;
     let formatedStreet = street.replace(" ", "+");
-    axios
-      .get(
-        `https://api.estated.com/property/v3?token=HAS9uPCHoVzhpTHoCeC2dbUnQ7eyO9&address=${formatedStreet}&city=${city}&state=${state}`
-      )
-      .then(res => {
-        let newHouse = {...this.state.client}
-         newHouse.house.total = res.data.properties[0].assessments[0].total;
-         newHouse.house.tax_year=
-          res.data.properties[0].assessments[0].tax_year;
-          newHouse.house.tax_amount= res.data.properties[0].assessments[0].tax_amount;
+    // axios
+    //   .get(
+    //     `https://api.estated.com/property/v3?token=HAS9uPCHoVzhpTHoCeC2dbUnQ7eyO9&address=${formatedStreet}&city=${city}&state=${state}`
+    //   )
+    //   .then(res => {
+    //     let newHouse = {...this.state.client}
+    //      newHouse.house.total =  JSON.stringify(res.data.properties[0].assessments[0].total);
+    //      newHouse.house.tax_year=
+    //       res.data.properties[0].assessments[0].tax_year;
+    //       newHouse.house.tax_amount= res.data.properties[0].assessments[0].tax_amount;
+    //       this.setState({client:newHouse})
+    //   })
+    //   .catch(err => console.log(err));
+
+    let newHouse = {...this.state.client}
+         newHouse.house.total = 333;
+         newHouse.house.tax_year= 44
+          
+          newHouse.house.tax_amount= 555;
           this.setState({client:newHouse})
-      })
-      .catch(err => console.log(err));
+
 
     let newArray = this.state.clients;
     newArray.push(this.state.client);

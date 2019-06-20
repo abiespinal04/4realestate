@@ -16,12 +16,12 @@ class Portfolio extends Component {
 
 shouldComponentUpdate(nextProps, nextState){
   console.log("Portfolio componentDidUpdate",nextState)
-  return nextState.clients !== this.state.clients
+  return nextProps.clients !== this.state.clients
 }
 
  componentDidUpdate(prevProps, prevState) {
   console.log("Portfolio componentDidUpdate",prevProps)
-    if(this.clients !== this.props.User.clients)
+    if(this.state.clients !== prevState.clients)
     {this.setState({clients:this.props.User.client})}
   }
 
@@ -29,7 +29,7 @@ handleDelete = (client,index) =>{
   console.log("Portfolio handledelet", index)
     const newArray = this.props.User.clients.filter(c => c !== client)
     // delete newArray[index];
-    // this.setState({clients:newArray})
+    this.setState({clients:newArray})
    
       
       this.props.DeleteClient(this.props.User,newArray)

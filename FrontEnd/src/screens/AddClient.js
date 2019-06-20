@@ -28,6 +28,7 @@ class AddClient extends Component {
       newArray.push(this.state.client)
       this.setState({clients:newArray})
       setTimeout(()=> {
+        
         this.props.FindAgent(this.props.User,this.state.clients)
       },1000)
    

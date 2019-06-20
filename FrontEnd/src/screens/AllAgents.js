@@ -16,13 +16,13 @@ class AllAgents extends Component {
     const { data } = await axios.get("http://localhost:3000/AgentList");
     console.log("Inside agentScreen componentDidMount: ", data.agentList);
     this.props.LoadAgents(data.agentList);
-    console.log("Data coming from load student  reducer", this.props.AgentList);
+    console.log("Data coming from load Agents reducer", this.props.AgentList);
     this.setState({ agentList: data.agentList });
   }
 
   handleAgentRendering = () => {
     return this.state.agentList.map((agent, index) => (
-      <AgentCard agent={agent} index={index} />
+      <AgentCard agent={agent} index={index} key={index} />
     ));
   };
 

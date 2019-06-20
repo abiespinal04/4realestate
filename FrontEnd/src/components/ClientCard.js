@@ -17,7 +17,7 @@ class ClientCard extends Component {
           <img src={this.props.client.agent.imageURL} alt="Mountain" />
         </Link>
         <div>
-          {console.log(this.props.client.agent.firstName)}
+        
           <h1>{this.props.client.agent.firstName}</h1>
           <h4>{this.props.client.agent.lastName}</h4>
           <p>{this.props.client.agent.createdAt}</p>

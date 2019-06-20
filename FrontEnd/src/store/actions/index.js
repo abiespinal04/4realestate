@@ -26,8 +26,8 @@ export const RegisterUser = agents => {
         axios
           .post("http://localhost:3000/AgentList/addAgent", agents)
           .then(() => {
+             dispatch({ type: LOGIN_USER, payload: agents });
             dispatch({ type: REGISTER_USER, payload: agents });
-            dispatch({ type: LOGIN_USER, payload: agents });
           })
           .catch(err => console.log(err));
       })

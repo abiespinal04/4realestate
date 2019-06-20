@@ -41,7 +41,7 @@ handleDelete = (client,index) =>{
       console.log("NEW CLIENTS", this.props.User)
   }
 componentDidMount() {
-   this.setState({clients:this.props.User.clients})
+  //  this.setState({clients:this.props.User.clients})
    console.log("Portfolio Componentdidmount", this.props.User.clients)
 }
 

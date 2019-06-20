@@ -41,9 +41,9 @@ class Profile extends Component {
          if(prevState.agent !== this.props.Agent){
              this.setState({agent: this.props.Agent})
              if(this.props.Agent.type === 'agent'){
-                this.setState({title:'Agent Porfolio', agent:this.props.Agent})
+                this.setState({title:'Agent Profile', agent:this.props.Agent})
                 } else if (this.props.Agent.type === 'client') {
-                    this.setState({title:'Client Porfolio'})
+                    this.setState({title:'Client Profile'})
                 }
          }
      }

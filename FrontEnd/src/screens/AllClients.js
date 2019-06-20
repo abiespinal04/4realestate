@@ -2,35 +2,38 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import ClientCard from "../components/ClientCard";
+import AgentCard from "../components/AgentCard";
 import * as action from "../store/actions";
 import Profile from "../components/Profile";
-import "../CSS/AllClients.css";
+import { API_URL } from "../utilities/API_URL";
+import "../CSS/AllAgents.css";
 
 class AllClients extends Component {
   state = {
-    clientList: []
+    agentList: []
   };
 
   async componentDidMount() {
-    const { data } = await axios.get("http://localhost:3000/clients");
-    console.log("Inside Clientscreen componentDidMount: ", data.client);
-    this.props.LoadClients(data.client);
-    console.log("Data coming from load Client reducer", this.props.ClientList);
-    this.setState({ clientList: data.client });
+    const { data } = await axios.get(`${API_URL}AgentList`);
+    console.log("Inside agentScreen componentDidMount: ", data.agentList);
+    this.props.LoadAgents(data.agentList);
+    console.log("Data coming from load Agents reducer", data.agentList[0]);
+    this.setState({ agentList: data.agentList });
   }
 
-  handleClientRendering = () => {
-    return this.state.clientList.map((client, index) => (
-      <ClientCard client={client} index={index} />
+  handleAgentRendering = () => {
+    const userList = this.state.agentList.filter(agent => agent.agent.type === 'client');
+    console.log("SSSSSSS", userList)
+    return userList.map((agent, index) => (
+      <AgentCard agent={agent} index={index} key={index} />
     ));
   };
 
   render() {
     return (
-      <div id="clientPage">
+      <div id="agentPage">
         <h1>All Clients</h1>
-        <div>{this.handleClientRendering()}</div>
+        <div>{this.handleAgentRendering()}</div>
       </div>
     );
   }
@@ -38,8 +41,8 @@ class AllClients extends Component {
 
 const mapStateToProps = state => {
   return {
-    ClientList: state.ClientList,
-    Client: state.SingleUserReducer
+    AgentList: state.AgentList,
+    Agent: state.SingleUserReducer
   };
 };
 

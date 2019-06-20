@@ -24,7 +24,7 @@ class AddClient extends Component {
 
   handleAddClient = () =>{
 
-      let newArray = [...this.state.clients]
+      let newArray = this.state.clients
       newArray.push(this.state.client)
       this.setState({clients:newArray})
       setTimeout(()=> {

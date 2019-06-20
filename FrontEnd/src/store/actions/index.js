@@ -56,6 +56,35 @@ export const LoginUser = user => {
   };
 };
 
+export const DeleteClient = (agent, clients) => {
+  console.log("YUURR",agent);
+ 
+    const agentEmail = agent.email;
+    const newAgent = { ...agent };
+    newAgent.clients = clients;
+    return dispatch => {
+      axios
+        .get(`http://localhost:3000/agentList/${agentEmail}`)
+        .then(res => {
+          console.log("YUURR",res.data.agent[0]);
+          console.log("AGENT",agent );
+  
+          agent = res.data.agent[0]
+          agent.agent.clients = clients
+  
+          axios.post(
+            "http://localhost:3000/agentList/addClient",
+            agent
+          ).then(res => {
+            dispatch({type:LOGIN_USER, payload:agent.agent })
+            console.log("Response",res)
+          }).catch(err => console.log(err))
+  
+        }).catch(err => console.log(err))
+    };
+  
+}
+
 export const FindAgent = (agent, clients) => {
   const agentEmail = agent.email;
   const newAgent = { ...agent };

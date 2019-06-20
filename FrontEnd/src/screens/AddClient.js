@@ -11,6 +11,7 @@ class AddClient extends Component {
       firstName: "",
       lastName: "",
       email: "",
+      imageURL: "http://bestvoyage.in/wp-content/uploads/profile.png",
       address: {
         street: "",
         city: "",
@@ -142,9 +143,11 @@ class AddClient extends Component {
                 type="text"
                 id="imgurl"
                 placeholder="Provide URL to your image..."
-                onChange={event =>
-                  this.setState({ imageURL: event.target.value })
-                }
+                onChange={event => {
+                  let newObj = { ...this.state.client };
+                  newObj.imageURL = event.target.value;
+                  this.setState({ client: newObj });
+                }}
               />
             </div>
           </div>

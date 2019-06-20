@@ -14,19 +14,16 @@ class Portfolio extends Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-   
     return nextProps.clients !== this.state.clients;
   }
 
   componentDidUpdate(prevProps, prevState) {
-   
     if (this.state.clients !== prevState.clients) {
       this.setState({ clients: this.props.User.client });
     }
   }
 
   handleDelete = (client, index) => {
-   
     const newArray = this.props.User.clients.filter(c => c !== client);
     // delete newArray[index];
     this.setState({ clients: newArray });
@@ -36,7 +33,7 @@ class Portfolio extends Component {
   handleLog = () => {
     console.log("NEW CLIENTS", this.props.User);
   };
- 
+
   render() {
     return (
       <div>
@@ -49,6 +46,9 @@ class Portfolio extends Component {
               {this.props.clients.map((client, index) =>
                 client !== null ? (
                   <div>
+                    {client.address !== undefined ? (
+                      <img src={client.address.imageURL} alt="abc" />
+                    ) : null}
                     <h4>{client.firstName}</h4>
                     <h4>{client.lastName}</h4>
                     <h4>{client.email}</h4>

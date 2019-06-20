@@ -6,6 +6,7 @@ import AgentCard from "../components/AgentCard";
 import * as action from "../store/actions";
 import Profile from "../components/Profile";
 import { API_URL } from "../utilities/API_URL";
+import "../CSS/AllAgents.css";
 
 class AllAgents extends Component {
   state = {
@@ -15,20 +16,24 @@ class AllAgents extends Component {
   async componentDidMount() {
     const { data } = await axios.get(`${API_URL}AgentList`);
     console.log("Inside agentScreen componentDidMount: ", data.agentList);
-    console.log(API_URL + " APIIIIIIIII");
     this.props.LoadAgents(data.agentList);
-    console.log("Data coming from load student  reducer", this.props.AgentList);
+    console.log("Data coming from load Agents reducer", this.props.AgentList);
     this.setState({ agentList: data.agentList });
   }
 
   handleAgentRendering = () => {
     return this.state.agentList.map((agent, index) => (
-      <AgentCard agent={agent} index={index} />
+      <AgentCard agent={agent} index={index} key={index} />
     ));
   };
 
   render() {
-    return <div>{this.handleAgentRendering()}</div>;
+    return (
+      <div id="agentPage">
+        <h1>All Agents</h1>
+        <div>{this.handleAgentRendering()}</div>
+      </div>
+    );
   }
 }
 

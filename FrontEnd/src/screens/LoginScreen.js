@@ -32,7 +32,7 @@ class LoginScreen  extends Component {
                 <label>Password:</label>
                 <input placeholder='password' onChange={(event) => this.setState({password:event.target.value})}/>
                 <Link
-            to="/home"
+            to="/profile"
             state={this.props.Agent}
           >
                 <button onClick={this.handleLoginUser}>Submit</button>

@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import { LOAD_AGENTS, REGISTER_USER, LOGIN_USER } from "./types";
+import { LOAD_AGENTS, REGISTER_USER, LOGIN_USER, LOAD_CLIENTS } from "./types";
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 
@@ -7,6 +7,10 @@ import { Link, Redirect } from "react-router-dom";
 export const LoadAgents = agents => {
   console.log("Inside LoadStudent action", agents);
   return { type: LOAD_AGENTS, payload: agents };
+};
+export const LoadClients = clients => {
+  console.log("Inside LoadStudent action", clients);
+  return { type: LOAD_CLIENTS, payload: clients };
 };
 
 export const RegisterUser = agents => {
@@ -22,8 +26,8 @@ export const RegisterUser = agents => {
         axios
           .post("http://localhost:3000/AgentList/addAgent", agents)
           .then(() => {
+             dispatch({ type: LOGIN_USER, payload: agents });
             dispatch({ type: REGISTER_USER, payload: agents });
-            dispatch({ type: LOGIN_USER, payload: agents });
           })
           .catch(err => console.log(err));
       })
@@ -52,38 +56,63 @@ export const LoginUser = user => {
   };
 };
 
+export const DeleteClient = (agent, clients) => {
+  console.log("YUURR",agent);
+ 
+    const agentEmail = agent.email;
+    const newAgent = { ...agent };
+    newAgent.clients = clients;
+    return dispatch => {
+      axios
+        .get(`http://localhost:3000/agentList/${agentEmail}`)
+        .then(res => {
+          console.log("YUURR",res.data.agent[0]);
+          console.log("AGENT",agent );
+  
+          agent = res.data.agent[0]
+          agent.agent.clients = clients
+  
+          axios.post(
+            "http://localhost:3000/agentList/addClient",
+            agent
+          ).then(res => {
+            dispatch({type:LOGIN_USER, payload:agent.agent })
+            console.log("Response",res)
+          }).catch(err => console.log(err))
+  
+        }).catch(err => console.log(err))
+    };
+  
+}
 
 export const FindAgent = (agent, clients) => {
- 
   const agentEmail = agent.email;
   const newAgent = { ...agent };
   newAgent.clients = clients;
- 
+
   // let firstResponse
   // let secondResponse = []
   return dispatch => {
     axios
       .get(`http://localhost:3000/agentList/${agentEmail}`)
       .then(res => {
-        console.log("YUURR",res.data.agent[0]);
-        console.log("AGENT",agent );
+        console.log("YUURR", res.data.agent[0]);
+        console.log("AGENT", agent);
 
         // res.data.agent[0].clients= clients;
-        agent = res.data.agent[0]
-        agent.agent.clients = clients
+        agent = res.data.agent[0];
+        agent.agent.clients = clients;
         // console.log("RESPONSE",agent.agent.clients)
 
-        axios.post(
-          "http://localhost:3000/agentList/addClient",
-          agent
-        ).then(res => {
-          dispatch({type:LOGIN_USER, payload:agent.agent })
-          console.log("Response",res)
-        }).catch(err => console.log(err))
-
-      }).catch(err => console.log(err))
-
-     
+        axios
+          .post("http://localhost:3000/agentList/addClient", agent)
+          .then(res => {
+            dispatch({ type: LOGIN_USER, payload: agent.agent });
+            console.log("Response", res);
+          })
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
 
     // console.log("New agent state", datas);
     // console.log(data.agent[0].agent);

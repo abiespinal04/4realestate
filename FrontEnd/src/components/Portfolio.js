@@ -55,11 +55,13 @@ componentDidMount() {
          {this.props.agent.type === 'agent' ? 
         <p>
           {this.props.clients.map((client, index) => (
+            
+            client !==  null? 
             <div>
             <h4>{client.firstName}</h4>
             <button onClick={ () => this.handleDelete(client,index)}><i class="fas fa-trash-alt"></i></button>
             </div>
-            
+            : null
           ))}
             </p>
              : <p>{this.props.clients.map(agent => (

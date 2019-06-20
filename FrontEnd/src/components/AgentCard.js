@@ -7,7 +7,7 @@ class AgentCard extends Component {
   state = {};
   render() {
     return (
-      <div className="mainContainer">
+      <div className="mainContainer grow">
         <Link
           to={{
             pathname: "/agentInfo",
@@ -19,9 +19,9 @@ class AgentCard extends Component {
         <div>
           <h1>{this.props.agent.agent.firstName}</h1>
           <h4>{this.props.agent.agent.lastName}</h4>
-          <p> joined: {this.props.agent.createdAt}</p>
+          <p>{this.props.agent.createdAt}</p>
           <button>
-            <i class="fas fa-heart" />
+            <i className="fas fa-heart" />
           </button>
         </div>
       </div>

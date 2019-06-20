@@ -9,7 +9,7 @@ class Profile extends Component {
       handleAddButton = () => {
         console.log("Profile", this.props.Agent)
         
-        if(this.props.Agent.type !== 'Agent'){
+        if(this.props.Agent.type === 'agent'){
           return (
             <Link to='/addClient'><i class="fas fa-user-plus"></i></Link>
           )

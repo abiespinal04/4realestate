@@ -22,7 +22,7 @@ class AllAgents extends Component {
   }
 
   handleAgentRendering = () => {
-    const userList = this.state.agentList.filter(agent => agent.agent.type === 'Agent');
+    const userList = this.state.agentList.filter(agent => agent.agent.type === 'agent');
     console.log("SSSSSSS", userList)
     return userList.map((agent, index) => (
       <AgentCard agent={agent} index={index} key={index} />

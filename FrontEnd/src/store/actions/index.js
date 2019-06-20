@@ -110,9 +110,9 @@ export const FindAgent = (agent, clients) => {
             dispatch({ type: LOGIN_USER, payload: agent.agent });
             console.log("Response", res);
           })
-          .catch(err => console.log(err));
+          .catch(err => console.log("FindAgent Error",err));
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log("FindAgent Error",err));
 
     // console.log("New agent state", datas);
     // console.log(data.agent[0].agent);

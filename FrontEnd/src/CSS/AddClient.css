@@ -1,3 +1,10 @@
+.fullPageContainer {
+  background-image: url("https://dti2gc0g5oj0i.cloudfront.net/s3/W1siZiIsIjIwMTYvMTEvMTEvMTYvMDYvMjgvODE3L0NsaWVudF9zZXJ2aWNlc19zaHV0dGVyc3RvY2tfMTU4NTIyMjc5LmpwZyJdXQ");
+  background-size: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
 /* Style inputs, select elements and textareas */
 input[type="text"],
 select,
@@ -52,12 +59,18 @@ label {
 
 /* Style the container */
 .container {
+  /* float: left; */
   margin-top: 20px;
   max-width: 60%;
   border-radius: 5px;
-  background-color: #aaaaaa;
+  background-color: rgba(168, 168, 168, 0.3);
   padding: 20px;
+  /* opacity: 0.5; */
 }
+
+/* .container:hover {
+  opacity: 9;
+} */
 
 /* Floating column for labels: 25% width */
 .col-25 {

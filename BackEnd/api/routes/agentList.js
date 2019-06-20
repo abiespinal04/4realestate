@@ -52,24 +52,22 @@ router.post('/addAgent', (req, res, next) => {
 
 router.post('/addClient', (req, res, next) => {
 
-    agent = req.body;
+    agents = req.body;
     console.log("TEST", req.body)
     
   
     AgentList.update(  {
-        agent : {agents:[
-        
-        {firstName: "Borracho",
-        lastName: "Martinez",
-        type: "client",
-        email: "maria@gmail.com",
-        password: "password",
-        address: "4242 3rd ave bronx new york",
-        imageURL: "https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?cs=srgb&dl=attractive-beautiful-beauty-1542085.jpg&fm=jpg", 
-        }]}
+        agent : { firstName: req.body.agent.firstName,
+        lastName: req.body.agent.lastName,
+        email: req.body.agent.email,
+        password: req.body.agent.password,
+        address: req.body.agent.address,
+        type: req.body.agent.type,
+        clients: req.body.agent.clients,
+        imageURL: req.body.agent.imageURL}
         },
 
-    { where: { id: 22 } })
+    { where: { id:  req.body.id } })
             .then(agents => {
                 res.status(200).json(agents)
             })

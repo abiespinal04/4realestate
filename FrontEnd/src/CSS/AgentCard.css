@@ -16,7 +16,7 @@
   border-radius: 30px;
 }
 
-img {
+.mainContainer img {
   max-width: 200px;
   background-color: #2e2e2e;
   max-height: 200px;
@@ -27,7 +27,7 @@ img {
   border: 1px solid black;
 }
 
-button {
+.mainContainer button {
   margin-bottom: 10px;
 }
 

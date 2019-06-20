@@ -19,9 +19,9 @@ class Home extends Component {
         }
      }
      
+     
      componentDidMount() {
          console.log("Component did mount", this.props.Agent)
-
          if(this.props.Agent.type === 'agent'){
             this.setState({title:'Agent Porfolio'})
             } else if (this.props.Agent.type === 'client') {
@@ -30,8 +30,9 @@ class Home extends Component {
      }
 
      shouldComponentUpdate(nextProps, nextState){
-         const update = nextProps.Agent !== this.state;
+         const update = nextProps.Agent !== this.state.agent;
         console.log("shouldComponentUpdate",this.props.Agent, update)
+        this.forceUpdate()
          return update
      }
 
@@ -68,6 +69,9 @@ class Home extends Component {
                     </div>
                     <HomeList/>
                 </div>
+                {/* {setTimeout( () =>{
+                    this.forceUpdate()
+                },2000)} */}
             </div>
          );
     }

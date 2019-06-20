@@ -57,17 +57,17 @@ router.post('/addClient', (req, res, next) => {
     
   
     AgentList.update(  {
-        agent : { firstName: "maria",
-        lastName: "espinal",
-        email: "abimaelespinal@hotmail.com",
-        password: 123456,
-        address: "232 32rd 23",
-        type: "agent",
-        clients: agents,
-        imageURL: "https://images.pexels.com/photos/1547971/pexels-photo-1547971.jpeg?cs=srgb&dl=adult-beautiful-blush-1547971.jpg&fm=jpg"}
+        agent : { firstName: req.body.agent.firstName,
+        lastName: req.body.agent.lastName,
+        email: req.body.agent.email,
+        password: req.body.agent.password,
+        address: req.body.agent.address,
+        type: req.body.agent.type,
+        clients: req.body.agent.clients,
+        imageURL: req.body.agent.imageURL}
         },
 
-    { where: { id: 28 } })
+    { where: { id:  req.body.id } })
             .then(agents => {
                 res.status(200).json(agents)
             })

@@ -17,18 +17,24 @@ class AddClient extends Component {
     return nextState.clients !== this.props.User
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if(prevProps.clients !== this.props.User)
-    this.props.AddClient(this.state.clients)
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if(prevProps.clients !== this.props.User)
+  //   this.props.FindAgent(this.props.User,this.state.clients)
+  // }
 
   handleAddClient = () =>{
+
       let newArray = [...this.state.clients]
       newArray.push(this.state.client)
-      this.setState({clients:newArray})      
+      this.setState({clients:newArray})
+      setTimeout(()=> {
+        this.props.FindAgent(this.props.User,this.state.clients)
+      },1000)
+   
+            
   }
     handleLog = () => {
-        console.log("NEW CLIENTS", this.state.clients)
+        console.log("NEW CLIENTS", this.props.User)
     }
   componentDidMount() {
      this.setState({clients:this.props.User.clients})

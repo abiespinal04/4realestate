@@ -62,9 +62,12 @@ componentDidMount() {
             <h4>{client.lastName}</h4>
             <h4>{client.email}</h4>
             {console.log("OH well", client.address)}
-            {client.address !== undefined ? client.address.street : null}
-            {client.address !== undefined ? client.address.city : null}
-            {client.address !== undefined ? client.address.state : null}
+            {client.address !== undefined ? <h4>{client.address.street} </h4>: null}
+            {client.address !== undefined ? <h4>{client.address.city} </h4> : null}
+            {client.address !== undefined ? <h4>{client.address.state} </h4>: null}
+            {client.house !== undefined ? <h4>{client.house.total} </h4>: null}
+            {client.house !== undefined ? <h4>{client.house.tax_year} </h4>: null}
+            {client.house !== undefined ? <h4>{client.house.tax_amount} </h4>: null}
             {/* <h4>{client.address.city}</h4>
             <h4>{client.address.state}</h4> */}
             <button onClick={ () => this.handleDelete(client,index)}><i class="fas fa-trash-alt"></i></button>

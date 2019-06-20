@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as action from "../store/actions";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../CSS/AddClient.css";
 
@@ -200,9 +201,11 @@ class AddClient extends Component {
           </div>
           <div className="row">
             <div className="buttonContainer">
-              <button className="submitButton" onClick={this.handleAddClient}>
-                Submit
-              </button>
+              <Link to="/profile">
+                <button className="submitButton" onClick={this.handleAddClient}>
+                  Submit
+                </button>
+              </Link>
             </div>
             {/* <button onClick={this.handleLog}>Test</button> */}
           </div>

@@ -96,11 +96,11 @@ router.post('/student', (req, res, next) => {
 
 })
 
-router.delete('/:campusId', (req, res, next) => {
-    const campusID = req.params.campusId
+router.delete('/:clientId', (req, res, next) => {
+    const clientId = req.params.clientId
     Campus.destroy({
         where: {
-            id: campusID
+            id: clientId
         }
     }).then(campusID => res.status(200).json(campusID))
         .catch(err => console.log("DELETE STUDDENT ERROR:", err))

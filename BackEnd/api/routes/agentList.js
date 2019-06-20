@@ -53,7 +53,7 @@ router.post('/addAgent', (req, res, next) => {
 router.post('/addClient', (req, res, next) => {
 
     agents = req.body;
-    console.log("TEST", req.body.id)
+    console.log("TEST", req.body)
     
   
     AgentList.update(  {

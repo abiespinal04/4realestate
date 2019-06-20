@@ -16,7 +16,7 @@
   border-radius: 30px;
 }
 
-img {
+.mainContainer img {
   max-width: 200px;
   background-color: #2e2e2e;
   max-height: 200px;

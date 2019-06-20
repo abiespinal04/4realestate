@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
+import Logo from '../res/4R_LOGO.png'
 
 class NavBar extends Component {
   state = {};
@@ -8,7 +9,7 @@ class NavBar extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
          <Link className="nav-link" to="/home">
-                Home <span className="sr-only">(current)</span>
+         <img  style={{width:'auto', height:50}}src={Logo}/> <span className="sr-only">(current)</span>
               </Link>
         <button
           className="navbar-toggler"

@@ -73,7 +73,7 @@ export const FindAgent = (agent, clients) => {
         agent.agent.clients = clients
         // console.log("RESPONSE",agent.agent.clients)
 
-       return axios.post(
+        axios.post(
           "http://localhost:3000/agentList/addClient",
           agent
         ).then(res => {

@@ -23,10 +23,14 @@ class AddClient extends Component {
   // }
 
   handleAddClient = () =>{
+
       let newArray = [...this.state.clients]
       newArray.push(this.state.client)
       this.setState({clients:newArray})
-      this.props.FindAgent(this.props.User,this.state.clients)
+      setTimeout(()=> {
+        this.props.FindAgent(this.props.User,this.state.clients)
+      },1000)
+   
             
   }
     handleLog = () => {

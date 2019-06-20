@@ -64,9 +64,6 @@ class Home extends Component {
                 />
               
                 <div>
-                    <div>
-                        <p>{console.log("CLIENT",this.state.agent.clients.length)}</p>
-                    </div>
                     <HomeList/>
                 </div>
                 {/* {setTimeout( () =>{

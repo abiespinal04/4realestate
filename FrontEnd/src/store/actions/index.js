@@ -53,7 +53,8 @@ export const LoginUser = user => {
 };
 
 export const DeleteClient = (agent, clients) => {
-  return (dispatch) => {
+  console.log("YUURR",agent);
+ 
     const agentEmail = agent.email;
     const newAgent = { ...agent };
     newAgent.clients = clients;
@@ -77,7 +78,7 @@ export const DeleteClient = (agent, clients) => {
   
         }).catch(err => console.log(err))
     };
-  }
+  
 }
 
 export const FindAgent = (agent, clients) => {

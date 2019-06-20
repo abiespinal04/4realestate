@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import * as action from '../store/actions'
 
 class Portfolio extends Component {
-  state = {};
+  
   state = {
     client:{
   firstName: "",
@@ -15,23 +15,25 @@ class Portfolio extends Component {
 };
 
 shouldComponentUpdate(nextProps, nextState){
-  return nextState.clients !== this.props.User
+  console.log("Portfolio componentDidUpdate",nextState)
+  return nextState.clients !== this.state.clients
 }
 
-// componentDidUpdate(prevProps, prevState) {
-//   if(prevProps.clients !== this.props.User)
-//   this.props.FindAgent(this.props.User,this.state.clients)
-// }
+ componentDidUpdate(prevProps, prevState) {
+  console.log("Portfolio componentDidUpdate",prevProps)
+    if(this.clients !== this.props.User.clients)
+    {this.setState({clients:this.props.User.client})}
+  }
 
-handleDelete = () =>{
-
-    let newArray = [...this.state.clients]
-    newArray.push(this.state.client)
-    this.setState({clients:newArray})
-    setTimeout(()=> {
+handleDelete = (client,index) =>{
+  console.log("Portfolio handledelet", index)
+    const newArray = this.props.User.clients.filter(c => c !== client)
+    // delete newArray[index];
+    // this.setState({clients:newArray})
+   
       
-      this.props.DeleteClient(this.props.User,this.state.clients)
-    },1000)
+      this.props.DeleteClient(this.props.User,newArray)
+   
  
           
 }
@@ -40,7 +42,7 @@ handleDelete = () =>{
   }
 componentDidMount() {
    this.setState({clients:this.props.User.clients})
-   console.log("Componentdidmount", this.props.User.clients)
+   console.log("Portfolio Componentdidmount", this.props.User.clients)
 }
 
   render() {
@@ -55,7 +57,7 @@ componentDidMount() {
           {this.props.clients.map((client, index) => (
             <div>
             <h4>{client.firstName}</h4>
-            <button onClick={ (index) => this.handleDelete(index)}><i class="fas fa-trash-alt"></i></button>
+            <button onClick={ () => this.handleDelete(client,index)}><i class="fas fa-trash-alt"></i></button>
             </div>
             
           ))}

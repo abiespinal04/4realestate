@@ -59,6 +59,14 @@ componentDidMount() {
             client !==  null? 
             <div>
             <h4>{client.firstName}</h4>
+            <h4>{client.lastName}</h4>
+            <h4>{client.email}</h4>
+            {console.log("OH well", client.address)}
+            {client.address !== undefined ? client.address.street : null}
+            {client.address !== undefined ? client.address.city : null}
+            {client.address !== undefined ? client.address.state : null}
+            {/* <h4>{client.address.city}</h4>
+            <h4>{client.address.state}</h4> */}
             <button onClick={ () => this.handleDelete(client,index)}><i class="fas fa-trash-alt"></i></button>
             </div>
             : null

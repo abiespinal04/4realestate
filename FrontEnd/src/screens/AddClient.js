@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as action from "../store/actions";
 import axios from "axios";
+import "../CSS/AddClient.css";
 
 class AddClient extends Component {
   state = {
@@ -49,13 +50,12 @@ class AddClient extends Component {
     //   })
     //   .catch(err => console.log(err));
 
-    let newHouse = {...this.state.client}
-         newHouse.house.total = 333;
-         newHouse.house.tax_year= 44
-          
-          newHouse.house.tax_amount= 555;
-          this.setState({client:newHouse})
+    let newHouse = { ...this.state.client };
+    newHouse.house.total = 333;
+    newHouse.house.tax_year = 44;
 
+    newHouse.house.tax_amount = 555;
+    this.setState({ client: newHouse });
 
     let newArray = this.state.clients;
     newArray.push(this.state.client);
@@ -74,63 +74,137 @@ class AddClient extends Component {
 
   render() {
     return (
-      <div>
-        <p>AddClient</p>
-        <input
-          placeholder="firstName"
-          onChange={event => {
-            let newObj = { ...this.state.client };
-            newObj.firstName = event.target.value;
-            this.setState({ client: newObj });
-          }}
-        />
-        <input
-          placeholder="lastName"
-          onChange={event => {
-            let newObj = { ...this.state.client };
-            newObj.lastName = event.target.value;
-            this.setState({ client: newObj });
-          }}
-        />
-
-        <input
-          placeholder="email"
-          onChange={event => {
-            let newObj = { ...this.state.client };
-            newObj.email = event.target.value;
-            this.setState({ client: newObj });
-          }}
-        />
-
-        <input
-          placeholder="street"
-          onChange={event => {
-            let newObj = { ...this.state.client };
-            newObj.address.street = event.target.value;
-            this.setState({ client: newObj });
-          }}
-        />
-
-        <input
-          placeholder="city"
-          onChange={event => {
-            let newObj = { ...this.state.client };
-            newObj.address.city = event.target.value;
-            this.setState({ client: newObj });
-          }}
-        />
-
-        <input
-          placeholder="state"
-          onChange={event => {
-            let newObj = { ...this.state.client };
-            newObj.address.state = event.target.value;
-            this.setState({ client: newObj });
-          }}
-        />
-
-        <button onClick={this.handleAddClient}>Submit</button>
-        <button onClick={this.handleLog}>Test</button>
+      <div className="container">
+        <h1>Add Client Information</h1>
+        <div className="row">
+          <div className="col-25">
+            <label>First Name</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="fname"
+              name="firstname"
+              placeholder="Enter first
+          name..."
+              onChange={event => {
+                let newObj = { ...this.state.client };
+                newObj.firstName = event.target.value;
+                this.setState({ client: newObj });
+              }}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-25">
+            <label>Last Name</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="lname"
+              name="lastname"
+              placeholder="Enter last
+          name..."
+              onChange={event => {
+                let newObj = { ...this.state.client };
+                newObj.lastName = event.target.value;
+                this.setState({ client: newObj });
+              }}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-25">
+            <label>Email</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="email"
+              placeholder="Enter Email..."
+              onChange={event => {
+                let newObj = { ...this.state.client };
+                newObj.email = event.target.value;
+                this.setState({ client: newObj });
+              }}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-25">
+            <label>Image URL</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="imgurl"
+              placeholder="Provide URL to your image..."
+              onChange={event =>
+                this.setState({ imageURL: event.target.value })
+              }
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-25">
+            <label>Street</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="street"
+              placeholder="Street..."
+              onChange={event => {
+                let newObj = { ...this.state.client };
+                newObj.address.street = event.target.value;
+                this.setState({ client: newObj });
+              }}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-25">
+            <label>City</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="imgurl"
+              placeholder="City..."
+              onChange={event => {
+                let newObj = { ...this.state.client };
+                newObj.address.city = event.target.value;
+                this.setState({ client: newObj });
+              }}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-25">
+            <label>State</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="state"
+              placeholder="State..."
+              onChange={event => {
+                let newObj = { ...this.state.client };
+                newObj.address.state = event.target.value;
+                this.setState({ client: newObj });
+              }}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="buttonContainer">
+            <button className="submitButton" onClick={this.handleAddClient}>
+              Submit
+            </button>
+          </div>
+          {/* <button onClick={this.handleLog}>Test</button> */}
+        </div>
       </div>
     );
   }

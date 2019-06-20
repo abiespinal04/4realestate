@@ -13,7 +13,7 @@ class AllClients extends Component {
   };
 
   async componentDidMount() {
-    const { data } = await axios.get("http://localhost:3000/clients");
+    const { data } = await axios.get("http://localhost:3000/");
     console.log("Inside Clientscreen componentDidMount: ", data.client);
     this.props.LoadClients(data.client);
     console.log("Data coming from load Client reducer", this.props.ClientList);

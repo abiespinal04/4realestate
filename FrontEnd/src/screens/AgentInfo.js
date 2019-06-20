@@ -6,8 +6,14 @@ import * as action from '../store/actions'
 const AgentInfo = (props) => {
 
 const  handleHire = () => {
-    console.log("Beginning the hiring process")
-    alert(`${props.User.firstName} wants to hire you`)
+    console.log("Beginning the hiring process",props.location.agentInfo.agent);
+    console.log("Client,", props.User)
+    const newClient = [...props.location.agentInfo.agent.clients]
+    newClient.push(props.User)
+    // alert(`${props.User.firstName} wants to hire you`)
+
+  
+    props.FindAgent(props.location.agentInfo.agent, newClient);
   }
     return ( 
         <div>

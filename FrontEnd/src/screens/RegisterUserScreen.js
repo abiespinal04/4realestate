@@ -26,7 +26,7 @@ class RegisterUserScreen extends Component {
     return (
       <div id = "regbg">
       <div className="container">
-        <form className="px-4 py-3">
+        <form id = "theform "className="px-4 py-3">
           <input
             type="email"
             className="form-control"

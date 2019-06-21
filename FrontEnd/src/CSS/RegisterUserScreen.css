@@ -1,11 +1,21 @@
 .container{
 display: inline-block;
+/* background-color: blue; */
+border-radius: 10px;
 
 }
 
+/* #theform{
+    background-color: blue;
+} */
+
 .container input{
     margin: 15px;
-    border-radius: 12px;
+    border-radius: 15px;
+    text-align : center;
+    /* border : none; */
+    /* border-color : solid blue; */
+    background : #dff0ea;
 }
 
 #regbg{

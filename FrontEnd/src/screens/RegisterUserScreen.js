@@ -24,6 +24,7 @@ class RegisterUserScreen extends Component {
   };
   render() {
     return (
+      <div id = "regbg">
       <div className="container">
         <form className="px-4 py-3">
           <input
@@ -135,6 +136,7 @@ class RegisterUserScreen extends Component {
             </button>
          
         </div>
+      </div>
       </div>
     );
   }

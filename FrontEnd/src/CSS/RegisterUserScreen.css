@@ -1,7 +1,23 @@
 .container{
 display: inline-block;
+
 }
 
 .container input{
     margin: 15px;
+    border-radius: 12px;
+}
+
+#regbg{
+    background: url("../res/centralpark.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

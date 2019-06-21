@@ -4,8 +4,8 @@ import Profile from "../components/Profile";
 import HomeList from "../components/HomeList";
 import { connect } from "react-redux";
 import Portfolio from "../components/Portfolio";
-import info from '../components/generalinfo';
-import HomeCard from '../components/HomeCard'
+// import info from '../components/generalinfo';
+// import HomeCard from '../components/HomeCard'
 
 
 /*
@@ -25,18 +25,18 @@ class Home extends Component {
 
   
   render() {
-    let result = info.map(item => <HomeCard url={item.url} info={item.detail} title = {item.title}/>)
+    // let result = info.map(item => <HomeCard url={item.url} info={item.detail} title = {item.title}/>)
     
     return (
     <div className="HomeContainer3">
      
-      <div class = "homedetails" id = "left">
+      {/* <div class = "homedetails" id = "left">
         <div class = "mydetails">
         <h1 className = "pi"> The only Place</h1>
         <h2 className = "pi">to get a 4 realestate
         </h2>
         </div>
-      </div>
+      </div> */}
       
 
       <div class = "homedetails" id = "right">

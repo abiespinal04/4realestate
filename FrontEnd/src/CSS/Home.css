@@ -1,20 +1,21 @@
-.HomeContainer h1{
-    font-family: Nanum Gothic;
-    color: aquamarine;
-    font-size: 70px
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro|Noto+Sans+HK&display=swap');
 
+.HomeContainer h1 {
+  font-family: Nanum Gothic;
+  color: aquamarine;
+  font-size: 70px;
 }
 
 .HomeContainer2 {
-    display : flex;
-    /* align-items: center; */
-    justify-content: center;
-    
-    /* text-align: center; */
-     /*display: flex; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
 
-    /*added*/
-    /*
+  /* text-align: center; */
+  /*display: flex; */
+
+  /*added*/
+  /*
      flex-direction : row; 
      flex-wrap: wrap;
     
@@ -23,90 +24,87 @@
     margin : 20px 40px;
     */
 
-    /*  */
-    /* justify-content: center; */
-    /* margin: auto; */
+  /*  */
+  /* justify-content: center; */
+  /* margin: auto; */
 }
 
-.HomeContainer3{
-    background : url('../img/homebg.jpg');
-    background-size: cover;
-    background-position : center;
-    position : relative;
-    top :0;
-    bottom: 0;
-    height:100vh;
-    z-index:10;
-    display: flex;
-     justify-content: space-around; 
-     align-items: center;
-   
-     
+.HomeContainer3 {
+  background: url("../res/homebg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* #right {
+  margin-bottom: 120px;
+  margin-left: 500px;
+} */
 
-
-#right{
-    margin-bottom: 120px;
-    margin-left : 500px;
+#left {
+  margin-top: 220px;
 }
+.homedetails {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* opacity : 0.3; */
+  /* margin-top : 200px; */
+  height: 300px;
+  
+  /* margin-right : 40px; */
 
-#left{
-    margin-top : 220px;
-}
-.homedetails{
-    background-color:rgba(0, 0, 0, 0.5);
-    /* opacity : 0.3; */
-    /* margin-top : 200px; */
-    height : 300px;
-    /* margin-right : 40px; */
-    
-    font-weight: 300;
-    border-radius: 12px;
-     /* padding : 50px;  */
-    font-family : Arial, Helvetica, sans-serif;
-
+  /* font-weight: 300; */
+  border-radius: 12px;
+  /* padding : 50px;  */
+  /* font-family: 'Maven Pro', sans-serif; ; */
 }
 /*create a div with a background black*/
-.homedetails:hover{
-    background-color:rgba(0, 0, 0, 0.5);
-    
-    transform : scale(1.05);
-    /* background : url('../img/pikachu.jpg'); */
+.homedetails:hover {
+  background-color: rgba(0, 0, 0, 0.5);
 
-    /* margin : 3; */
-    /* padding : 40px; */
-        
+  transform: scale(1.05);
+  /* background : url('../img/pikachu.jpg'); */
+
+  /* margin : 3; */
+  /* padding : 40px; */
 }
 
+.mydetails {
+  opacity: 0.8;
+  /* margin-right : 30px;  */
+  /* font-family : Mali; */
+  /* font-family: Comic Sans MS; */
+  font-family: 'Maven Pro',sans-serif;
+  /* font-size : 100px; */
 
-.mydetails{
-    opacity : 0.3;
-     /* margin-right : 30px;  */
-     /* font-family : Mali; */
-     font-family : Comic Sans MS;
-     
-
+  /* font-size: 200px; */
 }
 
-.mydetails:hover{
-    opacity : 1;
+.mydetails:hover {
+  opacity: 1;
 }
 
-.pi{
-    color :white;
+.pi {
+  color: white;
+  font-size: 50px;
+  font-weight: 1000;
 }
 
-
-.lol{
-    display :flex;
-    flex-wrap : wrap;
-    text-align : center;
-    justify-content: center;
-    width: 70%;
-   /* text-align : center; */
-    /* width : 500px; */
-    /*
+.lol {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  width: 70%;
+  /* text-align : center; */
+  /* width : 500px; */
+  /*
     align-items: center;
     background-color : blue;
     display : flex;
@@ -114,12 +112,12 @@
     */
 }
 
-#h2title{
-    text-align : center;
-    font-family: sans-serif;
-    /* font-size : 10px; */
-    padding : 10px;
+#h2title {
+  text-align: center;
+  /* font-family: sans-serif; */
+  /* font-size : 10px; */
+  padding: 10px;
 }
-.homeback{
-    width : 100%;
+.homeback {
+  width: 100%;
 }

@@ -21,9 +21,9 @@ class ClientCard extends Component {
           <h1>{this.props.client.agent.firstName}</h1>
           <h4>{this.props.client.agent.lastName}</h4>
           <p>{this.props.client.agent.createdAt}</p>
-          <button>
+          {/* <button>
             <i class="fas fa-heart" />
-          </button>
+          </button> */}
         </div>
       </div>
     );

@@ -26,7 +26,7 @@ class Profile extends Component {
               <h3>{this.props.Agent.firstName}</h3>
               <p>{this.props.Agent.lastName}</p>
               <div style={{display:'inline-block'}}>
-              <Link to='editprofile'><p><i class="fas fa-edit"></i></p></Link>
+              {/* <Link to='editprofile'><p><i class="fas fa-edit"></i></p></Link> */}
               {this.handleAddButton()}
               </div>
             </div>

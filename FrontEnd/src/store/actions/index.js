@@ -87,6 +87,7 @@ export const DeleteClient = (agent, clients) => {
 
 
 export const HiredUser = (agent, clients) => {
+
   const agentEmail = agent.email;
   const newAgent = { ...agent };
   newAgent.clients = {...clients};

@@ -1,7 +1,33 @@
 .container{
 display: inline-block;
+/* background-color: blue; */
+border-radius: 10px;
+
 }
+
+/* #theform{
+    background-color: blue;
+} */
 
 .container input{
     margin: 15px;
+    border-radius: 15px;
+    text-align : center;
+    /* border : none; */
+    /* border-color : solid blue; */
+    background : #dff0ea;
+}
+
+#regbg{
+    background: url("../res/centralpark.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

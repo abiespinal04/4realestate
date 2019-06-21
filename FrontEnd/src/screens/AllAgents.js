@@ -32,7 +32,7 @@ class AllAgents extends Component {
   render() {
     return (
       <div id="agentPage">
-        <h1>All Agents</h1>
+        <h1>Agents</h1>
         <div>{this.handleAgentRendering()}</div>
       </div>
     );

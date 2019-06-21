@@ -20,7 +20,13 @@ class LoginScreen  extends Component {
     }
 
     handleLoginUser = () => {
+        try{
         this.props.LoginUser(this.state)
+        setTimeout(() => {
+            console.log('  ')
+        },2000)
+        }
+        catch{ console.log('')}
         
     }
 /**<label>Username:</label>  <label>Password:</label>*/

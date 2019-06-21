@@ -47,7 +47,7 @@ class Portfolio extends Component {
               {this.props.clients.map((client, index) =>
                 client !== null ? (
                   <div>
-                    <img src={client.imageURL} />
+                    <img src={client.imageURL} alt="pic" />
                     <h4>{client.firstName}</h4>
                     <h4>{client.lastName}</h4>
                     <h4>{client.email}</h4>

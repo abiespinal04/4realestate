@@ -56,9 +56,6 @@ class Portfolio extends Component {
                       <h4>{client.address.street} </h4>
                     ) : null}
                     {client.address !== undefined ? (
-                      <h4>{client.address.imageURL} </h4>
-                    ) : null}
-                    {client.address !== undefined ? (
                       <h4>{client.address.city} </h4>
                     ) : null}
                     {client.address !== undefined ? (

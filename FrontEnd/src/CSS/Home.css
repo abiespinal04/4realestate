@@ -4,3 +4,122 @@
     font-size: 70px
 
 }
+
+.HomeContainer2 {
+    display : flex;
+    /* align-items: center; */
+    justify-content: center;
+    
+    /* text-align: center; */
+     /*display: flex; */
+
+    /*added*/
+    /*
+     flex-direction : row; 
+     flex-wrap: wrap;
+    
+    margin : auto;
+    align-items:center;
+    margin : 20px 40px;
+    */
+
+    /*  */
+    /* justify-content: center; */
+    /* margin: auto; */
+}
+
+.HomeContainer3{
+    background : url('../res/homebg.jpg');
+    background-size: cover;
+    background-position : center;
+    position : relative;
+    top :0;
+    bottom: 0;
+    height:100vh;
+    z-index:10;
+    display: flex;
+     justify-content: space-around; 
+     align-items: center;
+   
+     
+}
+
+
+
+#right{
+    margin-bottom: 120px;
+    margin-left : 500px;
+}
+
+#left{
+    margin-top : 220px;
+}
+.homedetails{
+    background-color:rgba(0, 0, 0, 0.5);
+    /* opacity : 0.3; */
+    /* margin-top : 200px; */
+    height : 300px;
+    /* margin-right : 40px; */
+    
+    font-weight: 300;
+    border-radius: 12px;
+     /* padding : 50px;  */
+    font-family : Arial, Helvetica, sans-serif;
+
+}
+/*create a div with a background black*/
+.homedetails:hover{
+    background-color:rgba(0, 0, 0, 0.5);
+    
+    transform : scale(1.05);
+    /* background : url('../img/pikachu.jpg'); */
+
+    /* margin : 3; */
+    /* padding : 40px; */
+        
+}
+
+
+.mydetails{
+    opacity : 0.3;
+     /* margin-right : 30px;  */
+     /* font-family : Mali; */
+     font-family : Comic Sans MS;
+     
+
+}
+
+.mydetails:hover{
+    opacity : 1;
+}
+
+.pi{
+    color :white;
+}
+
+
+.lol{
+    display :flex;
+    flex-wrap : wrap;
+    text-align : center;
+    justify-content: center;
+    width: 70%;
+   /* text-align : center; */
+    /* width : 500px; */
+    /*
+    align-items: center;
+    background-color : blue;
+    display : flex;
+    flex-direction: row;
+    */
+}
+
+#h2title{
+    text-align : center;
+    font-family: sans-serif;
+    /* font-size : 10px; */
+    padding : 10px;
+}
+.homeback{
+    width : 100%;
+}

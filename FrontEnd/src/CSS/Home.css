@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro|Noto+Sans+HK&display=swap');
+
 .HomeContainer h1 {
   font-family: Nanum Gothic;
   color: aquamarine;
@@ -37,14 +39,14 @@
   height: 100vh;
   z-index: 10;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
-#right {
+/* #right {
   margin-bottom: 120px;
   margin-left: 500px;
-}
+} */
 
 #left {
   margin-top: 220px;
@@ -54,12 +56,13 @@
   /* opacity : 0.3; */
   /* margin-top : 200px; */
   height: 300px;
+  
   /* margin-right : 40px; */
 
-  font-weight: 300;
+  /* font-weight: 300; */
   border-radius: 12px;
   /* padding : 50px;  */
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: 'Maven Pro', sans-serif; ; */
 }
 /*create a div with a background black*/
 .homedetails:hover {
@@ -73,10 +76,14 @@
 }
 
 .mydetails {
-  opacity: 0.3;
+  opacity: 0.8;
   /* margin-right : 30px;  */
   /* font-family : Mali; */
-  font-family: Comic Sans MS;
+  /* font-family: Comic Sans MS; */
+  font-family: 'Maven Pro',sans-serif;
+  /* font-size : 100px; */
+
+  /* font-size: 200px; */
 }
 
 .mydetails:hover {
@@ -85,6 +92,8 @@
 
 .pi {
   color: white;
+  font-size: 50px;
+  font-weight: 1000;
 }
 
 .lol {
@@ -105,7 +114,7 @@
 
 #h2title {
   text-align: center;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   /* font-size : 10px; */
   padding: 10px;
 }

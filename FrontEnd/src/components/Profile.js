@@ -1,45 +1,47 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import "../CSS/Profile.css";
 
 class Profile extends Component {
-    state = {  }
+  state = {};
 
-      handleAddButton = () => {
-        console.log("Profile", this.props.Agent)
-        
-        if(this.props.Agent.type === 'agent'){
-          return (
-            <Link to='/addClient'><i class="fas fa-user-plus"></i></Link>
-          )
-        } else return null
-      }
-    render() { 
-        return ( 
-            <div style={{textAlign:'center', marginLeft:20, marginTop:15}}>
-                 <img
-                style={{ maxHeight: 250, maxWidth: 200, borderRadius:'100%'}}
-                src={this.props.Agent.imageURL}
-                alt="Mountain"
-              />
-              <h3>{this.props.Agent.firstName}</h3>
-              <p>{this.props.Agent.lastName}</p>
-              <div style={{display:'inline-block'}}>
-              {/* <Link to='editprofile'><p><i class="fas fa-edit"></i></p></Link> */}
-              {this.handleAddButton()}
-              </div>
-            </div>
-         );
-    }
-}
- 
+  handleAddButton = () => {
+    console.log("Profile", this.props.Agent);
 
-const mapStateToProps = (state) => {
-
-    return{
-      Agent : state.SingleUserReducer
-    }
+    if (this.props.Agent.type === "agent") {
+      return (
+        <Link to="/addClient">
+          <i class="fas fa-user-plus" />
+          <p>Add Customer</p>
+        </Link>
+      );
+    } else return null;
+  };
+  render() {
+    return (
+      <div className="profileContainer">
+        <div className="pictureAndInfo">
+          <img src={this.props.Agent.imageURL} alt="Mountain" />
+          <h3>{this.props.Agent.firstName}</h3>
+          <h3>{this.props.Agent.lastName}</h3>
+          <div className="portfolio">
+            {/* <Link to='editprofile'><p><i class="fas fa-edit"></i></p></Link> */}
+            {this.handleAddButton()}
+          </div>
+        </div>
+      </div>
+    );
   }
+}
 
-export default connect(mapStateToProps,null)(Profile);
+const mapStateToProps = state => {
+  return {
+    Agent: state.SingleUserReducer
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(Profile);

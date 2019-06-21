@@ -4,6 +4,8 @@ import firebase from 'firebase';
 import {connect} from 'react-redux'
 import * as action from '../store/actions'
 import {Link} from 'react-router-dom'
+import '../CSS/Login.css'
+
 
 class LoginScreen  extends Component {
     state = { 
@@ -21,25 +23,29 @@ class LoginScreen  extends Component {
         this.props.LoginUser(this.state)
         
     }
+/**<label>Username:</label>  <label>Password:</label>*/
 
     render() { 
         
         return ( 
-
-            <div>
-                <label>Username:</label>
+            <div className = "logincontain">
+            <div className = "bb">
+                <h1>Login</h1>
+                <div className = "logbox">
+                <i class="far fa-user"></i>
                 <input placeholder='email' onChange={(event) => this.setState({email:event.target.value})}/>
-                <label>Password:</label>
-                <input placeholder='password' onChange={(event) => this.setState({password:event.target.value})}/>
-                <Link
-            to="/profile"
-            state={this.props.Agent}
-          >
-                <button onClick={this.handleLoginUser}>Submit</button>
+                </div>
+                <div className = "logbox">
+                <i class="fas fa-lock"></i>
+                <input placeholder='password' type = "password" onChange={(event) => this.setState({password:event.target.value})}/>
+                </div>
+                <Link to="/profile"state={this.props.Agent}>
+                <button className = "logbtn" onClick={this.handleLoginUser}>Submit</button>
                 </Link>
                 <Link to='registerUser'>
-                <button onClick={this.handleLoginUser}>Register</button>
+                <button className = "logbtn" onClick={this.handleLoginUser}>Register</button>
                 </Link>
+            </div>
             </div>
          );
     }

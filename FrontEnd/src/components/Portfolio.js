@@ -81,17 +81,17 @@ class Portfolio extends Component {
                       {client.house !== undefined ? (
                         <p>Total: {client.house.total} </p>
                       ) : (
-                        <p>not found</p>
+                        <p>{null}</p>
                       )}
                       {client.house !== undefined ? (
                         <p>Tax year: {client.house.tax_year} </p>
                       ) : (
-                        <p>not found</p>
+                        <p>{null}</p>
                       )}
                       {client.house !== undefined ? (
                         <p>Tax amount:{client.house.tax_amount} </p>
                       ) : (
-                        <p>not found</p>
+                        <p>{null}</p>
                       )}
                     </div>
                   </div>

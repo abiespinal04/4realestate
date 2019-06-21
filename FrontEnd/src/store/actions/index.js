@@ -70,8 +70,9 @@ export const DeleteClient = (agent, clients) => {
   const newAgent = { ...agent };
   newAgent.clients = clients;
   return dispatch => {
+    
     axios
-      .get(`${API_URL}/agentList/${agentEmail}`)
+      .get(`${API_URL}agentList/${agentEmail}`)
       .then(res => {
         console.log("YUURR", res.data.agent[0]);
         console.log("AGENT", agent);

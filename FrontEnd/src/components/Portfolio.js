@@ -39,8 +39,8 @@ class Portfolio extends Component {
   render() {
     return (
       <div>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.email}</p>
+        {/* <h1>{this.props.title}</h1> */}
+        {/* <p>{this.props.email}</p> */}
         <h1>Clients</h1>
         {this.props.agent.type === "agent" ? (
           <div className="clientList">

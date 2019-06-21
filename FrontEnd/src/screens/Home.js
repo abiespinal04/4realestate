@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../CSS/Home.css";
+//import "../CSS/Home.css";
 import Profile from "../components/Profile";
 import HomeList from "../components/HomeList";
 import { connect } from "react-redux";
@@ -30,13 +30,13 @@ class Home extends Component {
     return (
     <div className="HomeContainer3">
      
-      <div class = "homedetails" id = "left">
+      {/* <div class = "homedetails" id = "left">
         <div class = "mydetails">
         <h1 className = "pi"> The only Place</h1>
         <h2 className = "pi">to get a 4 realestate
         </h2>
         </div>
-      </div>
+      </div> */}
       
 
       <div class = "homedetails" id = "right">

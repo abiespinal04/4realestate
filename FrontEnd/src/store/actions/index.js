@@ -1,7 +1,14 @@
 import firebase from "firebase";
-import { LOAD_AGENTS, REGISTER_USER, LOGIN_USER, LOAD_CLIENTS,HIRED_USER } from "./types";
+import {
+  LOAD_AGENTS,
+  REGISTER_USER,
+  LOGIN_USER,
+  LOAD_CLIENTS,
+  HIRED_USER
+} from "./types";
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
+import { API_URL } from "../../utilities/API_URL.js";
 
 //LOADS THE SCREEN WITH DATA FROM THE DATABASE
 export const LoadAgents = agents => {
@@ -24,9 +31,9 @@ export const RegisterUser = agents => {
       .then(res => {
         console.log("Created user successfully", res);
         axios
-          .post("http://localhost:3000/AgentList/addAgent", agents)
+          .post(`${API_URL}AgentList/addAgent`, agents)
           .then(() => {
-             dispatch({ type: LOGIN_USER, payload: agents });
+            dispatch({ type: LOGIN_USER, payload: agents });
             dispatch({ type: REGISTER_USER, payload: agents });
           })
           .catch(err => console.log(err));
@@ -46,7 +53,7 @@ export const LoginUser = user => {
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         // dispatch({type:LOGIN_USER, payload:users})
-        axios.get(`http://localhost:3000/AgentList/${email}`).then(res => {
+        axios.get(`${API_URL}AgentList/${email}`).then(res => {
           console.log("Logged in successfully", res.data);
           dispatch({ type: LOGIN_USER, payload: res.data.agent[0].agent });
         });
@@ -57,46 +64,44 @@ export const LoginUser = user => {
 };
 
 export const DeleteClient = (agent, clients) => {
-  console.log("YUURR",agent);
- 
-    const agentEmail = agent.email;
-    const newAgent = { ...agent };
-    newAgent.clients = clients;
-    return dispatch => {
-      axios
-        .get(`http://localhost:3000/agentList/${agentEmail}`)
-        .then(res => {
-          console.log("YUURR",res.data.agent[0]);
-          console.log("AGENT",agent );
-  
-          agent = res.data.agent[0]
-          agent.agent.clients = clients
-  
-          axios.post(
-            "http://localhost:3000/agentList/addClient",
-            agent
-          ).then(res => {
-            dispatch({type:LOGIN_USER, payload:agent.agent })
-            console.log("Response",res)
-          }).catch(err => console.log(err))
-  
-        }).catch(err => console.log(err))
-    };
-  
-}
-
-
-export const HiredUser = (agent, clients) => {
+  console.log("YUURR", agent);
 
   const agentEmail = agent.email;
   const newAgent = { ...agent };
-  newAgent.clients = {...clients};
+  newAgent.clients = clients;
+  return dispatch => {
+    
+    axios
+      .get(`${API_URL}agentList/${agentEmail}`)
+      .then(res => {
+        console.log("YUURR", res.data.agent[0]);
+        console.log("AGENT", agent);
+
+        agent = res.data.agent[0];
+        agent.agent.clients = clients;
+
+        axios
+          .post(`${API_URL}agentList/addClient`, agent)
+          .then(res => {
+            dispatch({ type: LOGIN_USER, payload: agent.agent });
+            console.log("Response", res);
+          })
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  };
+};
+
+export const HiredUser = (agent, clients) => {
+  const agentEmail = agent.email;
+  const newAgent = { ...agent };
+  newAgent.clients = { ...clients };
 
   // let firstResponse
   // let secondResponse = []
   return dispatch => {
     axios
-      .get(`http://localhost:3000/agentList/${agentEmail}`)
+      .get(`${API_URL}agentList/${agentEmail}`)
       .then(res => {
         console.log("YUURR", res.data.agent[0]);
         console.log("AGENT", agent);
@@ -107,14 +112,14 @@ export const HiredUser = (agent, clients) => {
         // console.log("RESPONSE",agent.agent.clients)
 
         axios
-          .post("http://localhost:3000/agentList/addClient", agent)
+          .post(`${API_URL}agentList/addClient`, agent)
           .then(res => {
             // dispatch({ type: HIRED_USER, payload: agent.agent });
             console.log("Response", res);
           })
-          .catch(err => console.log("FindAgent Error",err));
+          .catch(err => console.log("FindAgent Error", err));
       })
-      .catch(err => console.log("FindAgent Error",err));
+      .catch(err => console.log("FindAgent Error", err));
 
     // console.log("New agent state", datas);
     // console.log(data.agent[0].agent);
@@ -128,17 +133,16 @@ export const HiredUser = (agent, clients) => {
   };
 };
 
-
 export const FindAgent = (agent, clients) => {
   const agentEmail = agent.email;
   const newAgent = { ...agent };
-  newAgent.clients = {...clients};
+  newAgent.clients = { ...clients };
 
   // let firstResponse
   // let secondResponse = []
   return dispatch => {
     axios
-      .get(`http://localhost:3000/agentList/${agentEmail}`)
+      .get(`${API_URL}agentList/${agentEmail}`)
       .then(res => {
         console.log("YUURR", res.data.agent[0]);
         console.log("AGENT", agent);
@@ -149,14 +153,14 @@ export const FindAgent = (agent, clients) => {
         // console.log("RESPONSE",agent.agent.clients)
 
         axios
-          .post("http://localhost:3000/agentList/addClient", agent)
+          .post(`${API_URL}agentList/addClient`, agent)
           .then(res => {
             dispatch({ type: LOGIN_USER, payload: agent.agent });
             console.log("Response", res);
           })
-          .catch(err => console.log("FindAgent Error",err));
+          .catch(err => console.log("FindAgent Error", err));
       })
-      .catch(err => console.log("FindAgent Error",err));
+      .catch(err => console.log("FindAgent Error", err));
 
     // console.log("New agent state", datas);
     // console.log(data.agent[0].agent);
@@ -208,7 +212,7 @@ export const AddClient = (agent, clients) => {
   console.log("Calling AddClient action", newAgent);
 
   axios
-    .post("http://localhost:3000/agentList/addClient", newAgent)
+    .post(`${API_URL}agentList/addClient`, newAgent)
     .then(data => console.log("MAKING CALL"))
     .catch(err => console.log(err));
 };

@@ -1,0 +1,40 @@
+.mainContainerInfo {
+    display: inline-block;
+  
+    background: linear-gradient(
+      0deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(87, 87, 87, 1) 0%,
+      rgba(173, 173, 173, 1) 100%
+    );
+    margin: 10px;
+    border: 1px solid rgb(100, 100, 100);
+    width: 500px;
+    max-width: 500px;
+    color: white;
+    text-shadow: 2px 2px #2e2e2e;
+    border-radius: 30px;
+  }
+  
+  .mainContainerInfo img {
+    max-width: 200px;
+    background-color: #2e2e2e;
+    max-height: 200px;
+    padding: 5px;
+    margin: 10px 0px;
+    border-radius: 50px;
+    box-shadow: 6px 6px 5px #000000;
+    border: 1px solid black;
+  }
+  
+  .mainContainerInfo button {
+    margin-bottom: 10px;
+  }
+  
+  .grow {
+    transition: all 0.2s ease-in-out;
+  }
+  .grow:hover {
+    transform: scale(1.1);
+  }
+  

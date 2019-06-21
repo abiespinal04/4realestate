@@ -1,5 +1,5 @@
 .profileContainer {
-  width: 40%;
+  width: 30%;
   margin: auto;
   margin-top: 30px;
   border: 1px solid black;
@@ -17,7 +17,7 @@
 .pictureAndInfo img {
   max-height: 250px;
   max-width: 200px;
-  border-radius: 10%;
+  border-radius: 15%;
   box-shadow: 7px 9px 16px -5px rgba(0, 0, 0, 0.75);
   margin-bottom: 20px;
 }

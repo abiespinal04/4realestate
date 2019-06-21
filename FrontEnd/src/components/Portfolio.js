@@ -41,7 +41,9 @@ class Portfolio extends Component {
       <div>
         {/* <h1>{this.props.title}</h1> */}
         {/* <p>{this.props.email}</p> */}
-        <h1 style={{ color: "gray" }}>List of my clients</h1>
+        <h1 style={{ color: "gray" }}>
+          You currently have: {this.props.clients.length} clients
+        </h1>
         {this.props.agent.type === "agent" ? (
           <div className="clientList">
             {this.props.clients.map((client, index) =>
@@ -104,7 +106,6 @@ class Portfolio extends Component {
             ))}
           </p>
         )}
-        <p>Clients:{this.props.clients.length}</p>
       </div>
     );
   }

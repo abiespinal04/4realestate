@@ -16,14 +16,11 @@ class Profile extends Component {
             lastName:''
         }
         ]
-        },
-        myAgent: ''
+        }
      }
      
      
      componentDidMount() {
-
-        // localStorage.getItem('user') && this.setState({myAgent: JSON.parse( localStorage.getItem('user')) })
          console.log("Component did mount", this.props.Agent)
          if(this.props.Agent.type === 'agent'){
             this.setState({title:'Agent Porfolio'})
@@ -40,10 +37,9 @@ class Profile extends Component {
      }
 
      componentDidUpdate(prevProps, prevState) {
-        //  localStorage.setItem('user', JSON.stringify(this.props.Agent))
         console.log("componentDidUpdate",this.props.Agent)
          if(prevState.agent !== this.props.Agent){
-             this.setState({agent: JSON.parse( localStorage.getItem('user'))})
+             this.setState({agent: this.props.Agent})
              if(this.props.Agent.type === 'agent'){
                 this.setState({title:'Agent Profile', agent:this.props.Agent})
                 } else if (this.props.Agent.type === 'client') {
@@ -51,11 +47,7 @@ class Profile extends Component {
                 }
          }
      }
-        handleTest = () => {
 
-        //  JSON.parse(localStorage.getItem('user'))
-          console.log("Storage value",  JSON.parse(localStorage.getItem('user')).email)
-        }
      handleTitle = () => {
         return this.state.title
      }
@@ -64,8 +56,6 @@ class Profile extends Component {
         return ( 
             <div className="HomeContainer"> 
               <ProfileCard/>
-
-              /*This is causing a bug */
                 <Portfolio
                 title={this.state.title}
                 email={this.props.Agent.email}
@@ -76,7 +66,6 @@ class Profile extends Component {
                 <div>
                     <HomeList/>
                 </div>
-                <button onClick={this.handleTest}>Test</button>
                 {/* {setTimeout( () =>{
                     this.forceUpdate()
                 },2000)} */}

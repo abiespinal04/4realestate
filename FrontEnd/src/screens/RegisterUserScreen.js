@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as action from "../store/actions";
 import "../CSS/RegisterUserScreen.css";
+import { Link } from "react-router-dom";
 
 class RegisterUserScreen extends Component {
   state = {
@@ -29,7 +30,6 @@ class RegisterUserScreen extends Component {
           <input
             type="email"
             className="form-control"
-           
             aria-describedby="emailHelp"
             placeholder="firstName"
             onChange={event => this.setState({ firstName: event.target.value })}
@@ -37,7 +37,6 @@ class RegisterUserScreen extends Component {
           <input
             type="email"
             className="form-control"
-          
             aria-describedby="emailHelp"
             placeholder="lastName"
             onChange={event => this.setState({ lastName: event.target.value })}
@@ -46,7 +45,6 @@ class RegisterUserScreen extends Component {
           <input
             type="email"
             className="form-control"
-         
             aria-describedby="emailHelp"
             placeholder="email"
             onChange={event => this.setState({ email: event.target.value })}
@@ -54,7 +52,6 @@ class RegisterUserScreen extends Component {
 
           <input
             className="form-control"
-           
             aria-describedby="emailHelp"
             type="password"
             placeholder="password"
@@ -63,7 +60,6 @@ class RegisterUserScreen extends Component {
           <input
             type="email"
             className="form-control"
-           
             aria-describedby="emailHelp"
             placeholder="imageURL"
             onChange={event => this.setState({ imageURL: event.target.value })}
@@ -92,7 +88,6 @@ class RegisterUserScreen extends Component {
           <input
             type="email"
             className="form-control"
-         
             aria-describedby="emailHelp"
             placeholder="type"
             onChange={event => this.setState({ type: event.target.value })}
@@ -126,14 +121,12 @@ class RegisterUserScreen extends Component {
                 this.setState({ address: newObj });
               }}
             />
-              </form>
-            <button
-              class="btn btn-primary"
-              onClick={this.handleRegisterUser}
-            >
+          </form>
+          <Link to="/profile">
+            <button class="btn btn-primary" onClick={this.handleRegisterUser}>
               Register
             </button>
-         
+          </Link>
         </div>
       </div>
     );

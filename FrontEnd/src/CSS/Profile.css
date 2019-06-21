@@ -9,6 +9,15 @@
   margin-top: 15;
   border-radius: 20%;
 }
+.picAndButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clientPicture {
+  margin-bottom: 10px;
+}
 
 .pictureAndInfo {
   padding: 20px;

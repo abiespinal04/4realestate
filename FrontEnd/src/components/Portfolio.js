@@ -50,11 +50,19 @@ class Portfolio extends Component {
               client !== null ? (
                 <div className="portfolioContainer">
                   <div className="innerContainer">
-                    <img
-                      className="clientPicture"
-                      src={client.imageURL}
-                      alt="pic"
-                    />
+                    <div className="picAndButton">
+                      <img
+                        className="clientPicture"
+                        src={client.imageURL}
+                        alt="pic"
+                      />
+                      <button
+                        className="profileButton"
+                        onClick={() => this.handleDelete(client, index)}
+                      >
+                        <i className="fas fa-trash-alt" />
+                      </button>
+                    </div>
 
                     <div className="theInfo">
                       <h3>{client.firstName}</h3>
@@ -87,12 +95,6 @@ class Portfolio extends Component {
                       )}
                     </div>
                   </div>
-                  <button
-                    className="profileButton"
-                    onClick={() => this.handleDelete(client, index)}
-                  >
-                    <i className="fas fa-trash-alt" />
-                  </button>
                 </div>
               ) : null
             )}

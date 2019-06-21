@@ -41,18 +41,28 @@ class Portfolio extends Component {
       <div>
         {/* <h1>{this.props.title}</h1> */}
         {/* <p>{this.props.email}</p> */}
-        <h1 style={{ color: "gray" }}>List of my clients</h1>
+        <h1 style={{ color: "gray" }}>
+          You currently have: {this.props.clients.length} clients
+        </h1>
         {this.props.agent.type === "agent" ? (
           <div className="clientList">
             {this.props.clients.map((client, index) =>
               client !== null ? (
                 <div className="portfolioContainer">
                   <div className="innerContainer">
-                    <img
-                      className="clientPicture"
-                      src={client.imageURL}
-                      alt="pic"
-                    />
+                    <div className="picAndButton">
+                      <img
+                        className="clientPicture"
+                        src={client.imageURL}
+                        alt="pic"
+                      />
+                      <button
+                        className="profileButton"
+                        onClick={() => this.handleDelete(client, index)}
+                      >
+                        <i className="fas fa-trash-alt" />
+                      </button>
+                    </div>
 
                     <div className="theInfo">
                       <h3>{client.firstName}</h3>
@@ -85,12 +95,6 @@ class Portfolio extends Component {
                       )}
                     </div>
                   </div>
-                  <button
-                    className="profileButton"
-                    onClick={() => this.handleDelete(client, index)}
-                  >
-                    <i className="fas fa-trash-alt" />
-                  </button>
                 </div>
               ) : null
             )}
@@ -104,7 +108,6 @@ class Portfolio extends Component {
             ))}
           </p>
         )}
-        <p>Clients:{this.props.clients.length}</p>
       </div>
     );
   }

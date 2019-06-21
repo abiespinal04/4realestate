@@ -38,7 +38,7 @@ class LoginScreen  extends Component {
             <div className = "bb">
                 <h1>Login</h1>
                 <div className = "logbox">
-                <i class="far fa-user"></i>
+                <i class="fas fa-user"></i>
                 <input placeholder='email' onChange={(event) => this.setState({email:event.target.value})}/>
                 </div>
                 <div className = "logbox">

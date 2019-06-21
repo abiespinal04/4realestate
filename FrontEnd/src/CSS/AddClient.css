@@ -1,6 +1,7 @@
 .fullPageContainer {
   background-image: url("https://dti2gc0g5oj0i.cloudfront.net/s3/W1siZiIsIjIwMTYvMTEvMTEvMTYvMDYvMjgvODE3L0NsaWVudF9zZXJ2aWNlc19zaHV0dGVyc3RvY2tfMTU4NTIyMjc5LmpwZyJdXQ");
   background-size: 100%;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: flex-start;
 }
@@ -17,9 +18,12 @@ textarea {
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
-textarea {
-  resize: none;
-  height: 100px;
+.fullPageContainer input {
+  height: 30px;
+}
+
+.fullPageContainer h1 {
+  margin-bottom: 0;
 }
 
 /* Style the label to display next to the inputs */

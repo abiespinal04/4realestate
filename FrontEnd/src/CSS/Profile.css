@@ -1,5 +1,5 @@
 .profileContainer {
-  width: 40%;
+  width: 30%;
   margin: auto;
   margin-top: 30px;
   border: 1px solid black;
@@ -9,6 +9,15 @@
   margin-top: 15;
   border-radius: 20%;
 }
+.picAndButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clientPicture {
+  margin-bottom: 10px;
+}
 
 .pictureAndInfo {
   padding: 20px;
@@ -17,7 +26,7 @@
 .pictureAndInfo img {
   max-height: 250px;
   max-width: 200px;
-  border-radius: 10%;
+  border-radius: 15%;
   box-shadow: 7px 9px 16px -5px rgba(0, 0, 0, 0.75);
   margin-bottom: 20px;
 }

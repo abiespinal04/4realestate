@@ -8,7 +8,14 @@ class NavBar extends Component {
   state = {};
 
   handleLogout = () => {
-    firebase.auth().signOut().then( err => console.log()).catch(err => console.log(err))
+    firebase.auth().signOut().then(function() {
+      console.log("Signout sucessful")
+      firebase.app().delete().then(function() {
+      });
+     
+    }, function(error) {
+      // An error happened.
+    });
   }
   render() {
     return (
@@ -40,16 +47,16 @@ class NavBar extends Component {
                 Agents
               </Link>
             </li>
-            <li onClick={console.log()}className="nav-item dropdown">
+            <li className="nav-item dropdown">
               <Link className="nav-link" to="/clients">
                 Clients
               </Link>
             </li>
-            <li className="nav-item dropdown">
-              <Link className="nav-link" to="/login">
+            {/* <li className="nav-item dropdown">
+              <Link className="nav-link" to="/">
                 Logout
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

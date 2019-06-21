@@ -1,0 +1,79 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+.logincontain{
+    background : url('../res/poolbg.jpg');
+    background-size: cover;
+    background-position : center;
+    position : relative;
+    top :0;
+    bottom: 0;
+    height:100vh;
+    z-index:10;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+   
+}
+
+.bb{
+    background-color: rgba(157, 212, 238, 0.5);
+    width : 280px;
+    height : 300px;
+    align-content: center;
+    /* transform: scale(1.2); */
+    /* border-color: blue; */
+    /* border-width: 10px; */
+    border-radius: 10px;
+
+    
+}
+
+.bb h1{
+    float: left;
+    border-bottom : 3px solid;
+    margin-bottom: 50px;
+    padding : 12;
+}
+
+.logbox{
+    width : 90%;
+    overflow : hidden;
+    font-size : 20px;
+    padding : 8px;
+    margin : 8px;
+    border-bottom : 1px solid white;
+
+}
+.logbox i {
+    position: relative;
+    /* width : 50%; */
+    /* float : left; */
+    margin-right : 10px;
+    text-align : center;
+}
+
+.logbox input{
+    border : none;
+    outline : none;
+    /* background : none; */
+    color: black ;
+    font-size : 16px;
+    border-radius : 6px;
+    width:200px;
+    text-align: center
+
+}
+
+.logbtn{
+    /* width: 100%; */
+    background : none;
+    border : 2px solid red;
+    color : black;
+    font-size : 16px;
+    margin : 10px;
+    border-radius: 8px;
+}
+
+.logbtn:hover{
+    background-color :red;
+
+}

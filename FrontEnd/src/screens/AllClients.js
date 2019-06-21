@@ -32,7 +32,7 @@ class AllClients extends Component {
   render() {
     return (
       <div id="agentPage">
-        <h1>All Clients</h1>
+        <h1 style={{fontFamily:'Abril Fatface'}}>Clients</h1>
         <div>{this.handleAgentRendering()}</div>
       </div>
     );

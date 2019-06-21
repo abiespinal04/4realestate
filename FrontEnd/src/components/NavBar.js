@@ -2,9 +2,21 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
 import Logo from '../res/4R_LOGO.png'
+import firebase from 'firebase'
 
 class NavBar extends Component {
   state = {};
+
+  handleLogout = () => {
+    firebase.auth().signOut().then(function() {
+      console.log("Signout sucessful")
+      firebase.app().delete().then(function() {
+      });
+     
+    }, function(error) {
+      // An error happened.
+    });
+  }
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,21 +52,12 @@ class NavBar extends Component {
                 Clients
               </Link>
             </li>
+            {/* <li className="nav-item dropdown">
+              <Link className="nav-link" to="/">
+                Logout
+              </Link>
+            </li> */}
           </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
         </div>
       </nav>
     );

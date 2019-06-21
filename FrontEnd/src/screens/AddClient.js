@@ -53,10 +53,10 @@ class AddClient extends Component {
     //   .catch(err => console.log(err));
 
     let newHouse = { ...this.state.client };
-    newHouse.house.total = 333;
-    newHouse.house.tax_year = 44;
+    newHouse.house.total = 25000;
+    newHouse.house.tax_year = 2018;
 
-    newHouse.house.tax_amount = 555;
+    newHouse.house.tax_amount = 7500;
     this.setState({ client: newHouse });
 
     let newArray = this.state.clients;

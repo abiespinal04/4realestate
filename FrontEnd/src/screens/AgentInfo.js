@@ -31,6 +31,7 @@ class AgentInfo extends Component{
 
    
     this.props.HiredUser(this.props.location.agentInfo.agent, newClient);
+  
   }
 
   handleRenderHire = () => {

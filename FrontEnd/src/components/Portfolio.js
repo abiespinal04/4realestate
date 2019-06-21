@@ -7,6 +7,7 @@ class Portfolio extends Component {
     client: {
       firstName: "",
       lastName: "",
+      imageURL: "",
       email: "",
       address: ""
     },
@@ -42,13 +43,11 @@ class Portfolio extends Component {
         {this.props.title === 'Agent Profile' ? <h4>Clients</h4>:  <h4>Agents</h4>}
         <div style={{ textAlign: "center", backgroundColor: "red" }}>
           {this.props.agent.type === "agent" ? (
-            <p>
+            <div>
               {this.props.clients.map((client, index) =>
                 client !== null ? (
                   <div>
-                    {client.address !== undefined ? (
-                      <img src={client.address.imageURL} alt="abc" />
-                    ) : null}
+                    <img src={client.imageURL} alt="pic" />
                     <h4>{client.firstName}</h4>
                     <h4>{client.lastName}</h4>
                     <h4>{client.email}</h4>
@@ -85,7 +84,7 @@ class Portfolio extends Component {
                   </div>
                 ) : null
               )}
-            </p>
+            </div>
           ) : (
             <p>
               {this.props.clients.map(agent => (

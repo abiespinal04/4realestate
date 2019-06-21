@@ -7,6 +7,7 @@ class Portfolio extends Component {
     client: {
       firstName: "",
       lastName: "",
+      imageURL: "",
       email: "",
       address: ""
     },
@@ -14,19 +15,16 @@ class Portfolio extends Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-   
     return nextProps.clients !== this.state.clients;
   }
 
   componentDidUpdate(prevProps, prevState) {
-   
     if (this.state.clients !== prevState.clients) {
       this.setState({ clients: this.props.User.client });
     }
   }
 
   handleDelete = (client, index) => {
-   
     const newArray = this.props.User.clients.filter(c => c !== client);
     // delete newArray[index];
     this.setState({ clients: newArray });
@@ -36,19 +34,20 @@ class Portfolio extends Component {
   handleLog = () => {
     console.log("NEW CLIENTS", this.props.User);
   };
- 
+
   render() {
     return (
       <div>
         <h1>{this.props.title}</h1>
         <p>{this.props.email}</p>
-        <h4>Clients</h4>
+        {this.props.title === 'Agent Profile' ? <h4>Clients</h4>:  <h4>Agents</h4>}
         <div style={{ textAlign: "center", backgroundColor: "red" }}>
           {this.props.agent.type === "agent" ? (
-            <p>
+            <div>
               {this.props.clients.map((client, index) =>
                 client !== null ? (
                   <div>
+                    <img src={client.imageURL} alt="pic" />
                     <h4>{client.firstName}</h4>
                     <h4>{client.lastName}</h4>
                     <h4>{client.email}</h4>
@@ -85,18 +84,19 @@ class Portfolio extends Component {
                   </div>
                 ) : null
               )}
-            </p>
+            </div>
           ) : (
             <p>
               {this.props.clients.map(agent => (
-                <div>
-                  <h4>{agent.firstName}</h4>
-                </div>
+                // <div>
+                //   <h4>{agent.firstName}</h4>
+                // </div>
+                null
               ))}
             </p>
           )}
         </div>
-        <p>Clients:{this.props.clients.length}</p>
+        {/* <p>Clients:{this.props.clients.length}</p> */}
       </div>
     );
   }

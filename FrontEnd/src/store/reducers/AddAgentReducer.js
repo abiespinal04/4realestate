@@ -12,6 +12,7 @@ export default (state = INITIAL_STATE, action) => {
 
     case REGISTER_USER : return { ...state, agents: action.payload }
 
+
     // case LOGIN_USER :  { 
     //   // window.location = '/home' 
     //   console.log("INSIDE LOGIN_USER CASE", action.payload)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import '../CSS/AgentCard.css'
+import '../CSS/AgentInfo.css'
 import * as action from '../store/actions'
 
 
@@ -44,7 +44,7 @@ class AgentInfo extends Component{
   render() {
     return ( 
       <div style={{width:'100%', backgroundColor:'#d3d3d3'}}>
-        <div className="mainContainer">
+        <div className="mainContainerInfo">
             <img
               style={{ maxHeight: 250, maxWidth: 450, }}
               src={this.props.location.agentInfo.agent.imageURL}

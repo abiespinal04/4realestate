@@ -39,6 +39,7 @@ class Portfolio extends Component {
   render() {
     return (
       <div>
+<<<<<<< HEAD
         {/* <h1>{this.props.title}</h1> */}
         {/* <p>{this.props.email}</p> */}
         <h1>Clients</h1>
@@ -53,6 +54,21 @@ class Portfolio extends Component {
                       src={client.imageURL}
                       alt="pic"
                     />
+=======
+        <h1>{this.props.title}</h1>
+        <p>{this.props.email}</p>
+        {this.props.title === 'Agent Profile' ? <h4>Clients</h4>:  <h4>Agents</h4>}
+        <div style={{ textAlign: "center", backgroundColor: "red" }}>
+          {this.props.agent.type === "agent" ? (
+            <div>
+              {this.props.clients.map((client, index) =>
+                client !== null ? (
+                  <div>
+                    <img src={client.imageURL} alt="pic" />
+                    <h4>{client.firstName}</h4>
+                    <h4>{client.lastName}</h4>
+                    <h4>{client.email}</h4>
+>>>>>>> master
 
                     <div className="theInfo">
                       <h3>{client.firstName}</h3>
@@ -85,6 +101,7 @@ class Portfolio extends Component {
                       )}
                     </div>
                   </div>
+<<<<<<< HEAD
                   <button
                     className="profileButton"
                     onClick={() => this.handleDelete(client, index)}
@@ -105,6 +122,23 @@ class Portfolio extends Component {
           </p>
         )}
         <p>Clients:{this.props.clients.length}</p>
+=======
+                ) : null
+              )}
+            </div>
+          ) : (
+            <p>
+              {this.props.clients.map(agent => (
+                // <div>
+                //   <h4>{agent.firstName}</h4>
+                // </div>
+                null
+              ))}
+            </p>
+          )}
+        </div>
+        {/* <p>Clients:{this.props.clients.length}</p> */}
+>>>>>>> master
       </div>
     );
   }

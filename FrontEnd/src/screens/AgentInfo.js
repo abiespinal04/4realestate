@@ -3,31 +3,58 @@ import {connect} from 'react-redux';
 import * as action from '../store/actions'
 
 
-const AgentInfo = (props) => {
+class AgentInfo extends Component{
 
-const  handleHire = () => {
-    console.log("Beginning the hiring process",props.location.agentInfo.agent);
-    console.log("Client,", props.User)
-    const newClient = [...props.location.agentInfo.agent.clients]
-    newClient.push(props.User)
-    // alert(`${props.User.firstName} wants to hire you`)
+    state = {
+      agent:''
+    }
 
-  
-    props.FindAgent(props.location.agentInfo.agent, newClient);
+    componentDidMount(){
+      this.setState({agent:this.props.location.agentInfo.agent})
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+      return nextState.agent !== this.props.location.agentInfo.agent
+    }
+    componentDidUpdate(prevProps,prevState){
+      if(prevState.agent === this.props.location.agentInfo.agent){
+        this.setState({agent:this.props.location.agentInfo.agent})
+      }
+    }
+
+  handleHire = () => {
+    console.log("Beginning the hiring process",this.props.location.agentInfo.agent);
+    console.log("Client,", this.props.User)
+    const newClient = [...this.props.location.agentInfo.agent.clients]
+    newClient.push(this.props.User)
+    // alert(`${this.props.User.firstName} wants to hire you`)
+
+   
+    this.props.HiredUser(this.props.location.agentInfo.agent, newClient);
   }
+
+  handleRenderHire = () => {
+    if(this.props.User.type !== 'agent' && this.props.User.type !== this.props.location.agentInfo.agent.type){
+      return (
+        <button onClick={this.handleHire}><i class="fab fa-hire-a-helper"></i></button>
+      )
+    } else return null
+  }
+
+  render() {
     return ( 
         <div>
             <img
               style={{ maxHeight: 500, maxWidth: 450, }}
-              src={props.location.agentInfo.agent.imageURL}
+              src={this.props.location.agentInfo.agent.imageURL}
               alt="Mountain"
             />
-            <h1>{props.location.agentInfo.agent.firstName}</h1>
-            <h2>{props.location.agentInfo.agent.lastName}</h2>
-            <h5>Clients: {props.location.agentInfo.agent.clients.length}</h5>
-            <button onClick={handleHire}><i class="fab fa-hire-a-helper"></i></button>
+            <h1>{this.props.location.agentInfo.agent.firstName}</h1>
+            <h2>{this.props.location.agentInfo.agent.lastName}</h2>
+            <h5>Clients: {this.props.location.agentInfo.agent.clients.length}</h5>
+            {this.handleRenderHire()}
         </div>
      );
+    }
 }
  
 const mapStateToProps = (state) => {

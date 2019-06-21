@@ -1,0 +1,7 @@
+.container{
+display: inline-block;
+}
+
+.container input{
+    margin: 15px;
+}

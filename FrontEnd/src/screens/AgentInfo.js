@@ -13,8 +13,17 @@ const  handleHire = () => {
     // alert(`${props.User.firstName} wants to hire you`)
 
   
-    props.FindAgent(props.location.agentInfo.agent, newClient);
+    props.HiredUser(props.location.agentInfo.agent, newClient);
   }
+
+  const  handleRenderHire = () => {
+    if(props.User.type !== 'agent'){
+      return (
+        <button onClick={handleHire}><i class="fab fa-hire-a-helper"></i></button>
+      )
+    } else return null
+  }
+
     return ( 
         <div>
             <img
@@ -25,7 +34,7 @@ const  handleHire = () => {
             <h1>{props.location.agentInfo.agent.firstName}</h1>
             <h2>{props.location.agentInfo.agent.lastName}</h2>
             <h5>Clients: {props.location.agentInfo.agent.clients.length}</h5>
-            <button onClick={handleHire}><i class="fab fa-hire-a-helper"></i></button>
+            {handleRenderHire()}
         </div>
      );
 }

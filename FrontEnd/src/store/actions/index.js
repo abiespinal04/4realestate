@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import { LOAD_AGENTS, REGISTER_USER, LOGIN_USER, LOAD_CLIENTS } from "./types";
+import { LOAD_AGENTS, REGISTER_USER, LOGIN_USER, LOAD_CLIENTS,HIRED_USER } from "./types";
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 
@@ -85,10 +85,53 @@ export const DeleteClient = (agent, clients) => {
   
 }
 
+
+export const HiredUser = (agent, clients) => {
+  const agentEmail = agent.email;
+  const newAgent = { ...agent };
+  newAgent.clients = {...clients};
+
+  // let firstResponse
+  // let secondResponse = []
+  return dispatch => {
+    axios
+      .get(`http://localhost:3000/agentList/${agentEmail}`)
+      .then(res => {
+        console.log("YUURR", res.data.agent[0]);
+        console.log("AGENT", agent);
+
+        // res.data.agent[0].clients= clients;
+        agent = res.data.agent[0];
+        agent.agent.clients = clients;
+        // console.log("RESPONSE",agent.agent.clients)
+
+        axios
+          .post("http://localhost:3000/agentList/addClient", agent)
+          .then(res => {
+            // dispatch({ type: HIRED_USER, payload: agent.agent });
+            console.log("Response", res);
+          })
+          .catch(err => console.log("FindAgent Error",err));
+      })
+      .catch(err => console.log("FindAgent Error",err));
+
+    // console.log("New agent state", datas);
+    // console.log(data.agent[0].agent);
+
+    // data.agent[0].agent.clients = clients;
+    // const newAgent = data.agent[0].agent;
+    // const [firstResponse, secondResponse] = await Promise.all([
+    //   axios.get(`http://localhost:3000/agentList/${agentEmail}`),
+    //   axios.post("http://localhost:3000/AgentList/addClient", firstResponse.agent[0].agent)
+    // ]);
+  };
+};
+
+
 export const FindAgent = (agent, clients) => {
   const agentEmail = agent.email;
   const newAgent = { ...agent };
-  newAgent.clients = clients;
+  newAgent.clients = {...clients};
 
   // let firstResponse
   // let secondResponse = []

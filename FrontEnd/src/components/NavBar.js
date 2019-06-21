@@ -1,28 +1,36 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
-import Logo from '../res/4R_LOGO.png'
-import firebase from 'firebase'
+import Logo from "../res/4R_LOGO.png";
+import firebase from "firebase";
 
 class NavBar extends Component {
   state = {};
 
   handleLogout = () => {
-    firebase.auth().signOut().then(function() {
-      console.log("Signout sucessful")
-      firebase.app().delete().then(function() {
-      });
-     
-    }, function(error) {
-      // An error happened.
-    });
-  }
+    firebase
+      .auth()
+      .signOut()
+      .then(
+        function() {
+          console.log("Signout sucessful");
+          firebase
+            .app()
+            .delete()
+            .then(function() {});
+        },
+        function(error) {
+          // An error happened.
+        }
+      );
+  };
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-         <Link className="nav-link" to="/home">
-         <img  style={{width:'auto', height:50}}src={Logo}/> <span className="sr-only">(current)</span>
-              </Link>
+        <Link className="nav-link" to="/home">
+          <img style={{ width: "auto", height: 50 }} src={Logo} />{" "}
+          <span className="sr-only">(current)</span>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -37,7 +45,7 @@ class NavBar extends Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
+            <li className="nav-item">
               <Link className="nav-link" to="/profile">
                 Profile <span className="sr-only">(current)</span>
               </Link>

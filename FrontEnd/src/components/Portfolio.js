@@ -40,7 +40,7 @@ class Portfolio extends Component {
       <div>
         <h1>{this.props.title}</h1>
         <p>{this.props.email}</p>
-        <h4>Clients</h4>
+        {this.props.title === 'Agent Profile' ? <h4>Clients</h4>:  <h4>Agents</h4>}
         <div style={{ textAlign: "center", backgroundColor: "red" }}>
           {this.props.agent.type === "agent" ? (
             <div>
@@ -88,14 +88,15 @@ class Portfolio extends Component {
           ) : (
             <p>
               {this.props.clients.map(agent => (
-                <div>
-                  <h4>{agent.firstName}</h4>
-                </div>
+                // <div>
+                //   <h4>{agent.firstName}</h4>
+                // </div>
+                null
               ))}
             </p>
           )}
         </div>
-        <p>Clients:{this.props.clients.length}</p>
+        {/* <p>Clients:{this.props.clients.length}</p> */}
       </div>
     );
   }

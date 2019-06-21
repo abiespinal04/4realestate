@@ -33,7 +33,7 @@ class Home extends Component {
       <div class = "homedetails" id = "left">
         <div class = "mydetails">
         <h1 className = "pi"> The only Place</h1>
-        <h2 className = "pi">to get a 4 real astate
+        <h2 className = "pi">to get a 4 realestate
         </h2>
         </div>
       </div>
